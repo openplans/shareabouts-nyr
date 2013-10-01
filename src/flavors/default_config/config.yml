@@ -1,11 +1,11 @@
 # Settings for the app
 app:
   # HTML Title
-  title: Shareabouts
+  title: NY Rising
   # Header name
-  name: Shareabouts
+  name: NY Rising - Rockaway East
   # Meta description that will show up in Google search results
-  meta_description: _(Shareabouts is a mapping tool to gather crowd sourced public input. Use it to collect suggested locations and comments in a social, engaging process.)
+  meta_description: _(NY Rising)
 
 # Settings for map and layer configs
 map:
@@ -13,13 +13,13 @@ map:
   geolocation_onload: false
   options:
     center:
-      lat: 39.9523524
-      lng: -75.1636075
+      lat: 40.6026
+      lng: -73.7663
     zoom: 14
-    minZoom: 10
+    minZoom: 12
     maxZoom: 17
   base_layer:
-    url: http://{s}.tiles.mapbox.com/v3/openplans.map-dmar86ym/{z}/{x}/{y}.png
+    url: http://{s}.tiles.mapbox.com/v3/openplans.150-NYRising-RE/{z}/{x}/{y}.png
     attribution: '&copy; OpenStreetMap contributors, CC-BY-SA. <a href="http://mapbox.com/about/maps" target="_blank">Terms &amp; Feedback</a>'
   layers: []
 
@@ -156,15 +156,3 @@ pages:
     slug: about
     name: overview
     start_page: true
-
-  - title: _(Why Shareabouts?)
-    slug: why
-    url: /static/pages/why.html
-
-  - title: _(Features)
-    slug: features
-    url: /static/pages/features.html
-
-  - title: _(GitHub)
-    external: true
-    url: https://github.com/openplans/shareabouts
