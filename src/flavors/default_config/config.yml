@@ -13,10 +13,10 @@ map:
   geolocation_onload: false
   options:
     center:
-      lat: 40.6026
-      lng: -73.7663
-    zoom: 15
-    minZoom: 16
+      lat: 40.59332764604569
+      lng: -73.77615451812744
+    zoom: 16
+    minZoom: 15
     maxZoom: 17
   base_layer:
     url: http://{s}.tiles.mapbox.com/v3/openplans.150-NYRising-RE/{z}/{x}/{y}.png
@@ -32,28 +32,56 @@ place_types:
   A:
     default: blue
     focused: red
-    label: _(Landmark)
+    label: _(Economic)
   B:
     default: blue
     focused: red
-    label: _(Park)
+    label: _(Health and Social Services)
   C:
     default: blue
     focused: red
-    label: _(School)
+    label: _(Housing)
   D:
     default: blue
     focused: red
-    label: _(School)
+    label: _(Infrastructure Systems)
   E:
     default: blue
     focused: red
-    label: _(School)
+    label: _(Natural and Cultural)
+  Aadded:
+    default: blue-puck
+    focused: red
+    label: _(Economic)
+  Badded:
+    default: blue-puck
+    focused: red
+    label: _(Health and Social Services)
+  Cadded:
+    default: blue-puck
+    focused: red
+    label: _(Housing)
+  Dadded:
+    default: blue-puck
+    focused: red
+    label: _(Infrastructure Systems)
+  Eadded:
+    default: blue-puck
+    focused: red
+    label: _(Natural and Cultural)
 # Defines place icons. See http://leaflet.cloudmade.com/reference.html#icon
 # for documention of each property. Any omitted property will be undefined.
 place_type_icons:
   blue:
     iconUrl: /static/css/images/dot.png
+    iconSize:
+      width: 17
+      height: 18
+    iconAnchor:
+      x: 9
+      y: 9
+  blue-puck:
+    iconUrl: /static/css/images/markers/dot-2654d2.png
     iconSize:
       width: 17
       height: 18
@@ -101,19 +129,19 @@ place:
       type: select
       options:
         - label: _(Economic asset)
-          value: A
+          value: Aadded
         - label: _(  Health and Social Services)
-          value: B
+          value: Badded
         - label: _(Housing)
-          value: C
+          value: Cadded
         - label: _(Infrastructure Systems)
-          value: D
+          value: Dadded
         - label: _(Natural and Cultural)
-          value: E
+          value: Eadded
       name: location_type
     - prompt: _(Describe the asset)
       type: textarea
-      name: descriptio
+      name: DESCRIPTIO
       attrs:
         - key: placeholder
           value: _(Description...)
@@ -141,6 +169,11 @@ place:
           value: _(Address)
         - key: size
           value: 30
+    - type: hidden
+      name: user-added
+      attrs:
+        - key: value
+          value: 1
 survey:
   submission_type: comments
 

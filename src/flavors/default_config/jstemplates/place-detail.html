@@ -7,13 +7,30 @@
 
 <section class="place-items">
   
+  {{#if user-added}}
+  <p>This {{ place_type_label }} asset added by {{ submitter_name }}.</p> 
+  <p>Comment: {{ DESCRIPTIO }}</p>
   
+  <hr/>
+  {{/if}}
+  
+  {{#if ASSET}}
   <p>Address: {{Address}}</p>
   
   <p>Asset type: {{ASSET}}. </p>
   <p>Owned by: {{OwnerName}}</p>
   <p>Further information about the asset: {{DESCRIPTIO}}.</p>
   <p>Subcategory: {{SUBHEADING}}</p>
+  
+  <p>Assessed risk factors:</p>
+  <ul>
+    <li>Critical: {{CRITICAL}}</li>
+    <li>Comvalue: {{ComValue}}</li>
+    <li>Zone: {{Zone}}</li>
+  </ul>
+  
+  <hr/>
+  {{/if}}
   
   <!-- 
   <p>Bldgclass: {{BldgClass}}</p>
@@ -25,12 +42,7 @@
   -->
   
   
-  <p>Assessed risk factors:</p>
-  <ul>
-    <li>Critical: {{CRITICAL}}</li>
-    <li>Comvalue: {{ComValue}}</li>
-    <li>Zone: {{Zone}}</li>
-  </ul>
+
     
   
 </section>

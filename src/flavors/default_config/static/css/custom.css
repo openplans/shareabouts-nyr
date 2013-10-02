@@ -246,10 +246,12 @@ a.reply-link:hover {
 
 #ticker {
 /*  background-color: #806080;*/
+  display: none;
 }
 
 ul.recent-points {
 /*  color: #eee;*/
+  display: none;
 }
 
 .recent-points li {
