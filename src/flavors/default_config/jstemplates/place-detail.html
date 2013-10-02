@@ -15,12 +15,10 @@
   {{/if}}
   
   {{#if ASSET}}
-  <p>Address: {{Address}}</p>
+  <p>Address: {{Address}}. {{#if OwnerName}}Owned by: {{OwnerName}}{{/if}}</p>
   
-  <p>Asset type: {{ASSET}}. </p>
-  <p>Owned by: {{OwnerName}}</p>
-  <p>Further information about the asset: {{DESCRIPTIO}}.</p>
-  <p>Subcategory: {{SUBHEADING}}</p>
+  <p>Asset type: {{ASSET}}.</p>
+  <p>Further information about the asset: {{DESCRIPTIO}}. {{SUBHEADING}}</p>
   
   <p>Assessed risk factors:</p>
   <ul>

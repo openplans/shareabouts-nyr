@@ -42,6 +42,34 @@ a:hover {
 }
 
 
+ /* stuff for the different asset classes */
+ 
+#asset-class {
+  color: white;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 0.5em;
+} 
+.asset-economic {
+  background: #FF6F75;
+}
+
+.asset-health {
+  background: #0091FF;
+}
+
+.asset-housing {
+  background: #F9FF6A;
+}
+
+.asset-infrastructure {
+  background: #CD95D7;
+}
+
+.asset-natural {
+  color: #fff;
+  background: #67D666;
+}
 /* =Logo
 -------------------------------------------------------------- */
 
