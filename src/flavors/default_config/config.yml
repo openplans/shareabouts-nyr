@@ -3,7 +3,7 @@ app:
   # HTML Title
   title: NY Rising
   # Header name
-  name: NY Rising - Rockaway East
+  name: Rockaway East
   # Meta description that will show up in Google search results
   meta_description: _(NY Rising)
 
@@ -109,7 +109,7 @@ activity:
   interval: 30000
 
 place:
-  adding_supported: true
+  adding_supported: false
   add_button_label: _(Add a missing asset)
   action_text: _(added)
   title: _(Describe this location)
