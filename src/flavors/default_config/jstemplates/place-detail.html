@@ -1,0 +1,42 @@
+{{> place-detail-promotion-bar }}
+
+<header class="place-header clearfix">
+  <p><span id="asset-class">{{ASSET_CLAS}}</span></p>
+  <h1>{{ Name }}</h1> 
+</header>
+
+<section class="place-items">
+  
+  
+  <p>Address: {{Address}}</p>
+  
+  <p>Asset type: {{ASSET}}. </p>
+  <p>Owned by: {{OwnerName}}</p>
+  <p>Further information about the asset: {{DESCRIPTIO}}.</p>
+  <p>Subcategory: {{SUBHEADING}}</p>
+  
+  <!-- 
+  <p>Bldgclass: {{BldgClass}}</p>
+  <p>Building_C: {{BUILDING_C}}</p>
+
+
+  <p>Shoredefen: {{ShoreDefen}}</p>
+  <p>Socially_V: {{Socially_V}}</p>
+  -->
+  
+  
+  <p>Assessed risk factors:</p>
+  <ul>
+    <li>Critical: {{CRITICAL}}</li>
+    <li>Comvalue: {{ComValue}}</li>
+    <li>Zone: {{Zone}}</li>
+  </ul>
+    
+  
+</section>
+
+<p><strong>Is information missing or incorrect about this location? Leave a comment to help improve the information used to guide the Community Recovery Plan.</strong></p>
+
+{{#survey_config}}
+<section class="survey"></section>
+{{/survey_config}}

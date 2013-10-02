@@ -12,3 +12,34 @@
     s.parentNode.insertBefore(t, s);
   })();
 </script>
+
+<script type="text/javascript">
+
+$(Shareabouts).on('panelshow', function(evt, app, path) {
+  
+  var asset = $("#asset-class").text();
+  
+  switch(asset)
+  {
+  case "A":
+    $("#asset-class").text("Economic");
+    break;
+  case "B":
+    $("#asset-class").text("Health and Social Services");
+    break;
+  case "C":
+    $("#asset-class").text("Housing");
+    break;
+  case "D":
+    $("#asset-class").text("Infrastructure Systems");
+    break;
+  case "E":
+    $("#asset-class").text("Natural and Cultural");
+    break;
+  default:
+    $("#asset-class").text("");
+  } 
+  
+});
+
+</script>
