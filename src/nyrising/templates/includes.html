@@ -17,27 +17,27 @@
 
 $(Shareabouts).on('panelshow', function(evt, app, path) {
   
-  var asset = $("#asset-class").text();
+  var asset = $(".asset-class").text();
   
   switch(asset)
   {
   case "A":
-    $("#asset-class").text("Economic").addClass('asset-economic');
+    $(".asset-class").text("Economic").addClass('asset-economic');
     break;
   case "B":
-    $("#asset-class").text("Health and Social Services").addClass('asset-health');
+    $(".asset-class").text("Health and Social Services").addClass('asset-health');
     break;
   case "C":
-    $("#asset-class").text("Housing").addClass('asset-housing');
+    $(".asset-class").text("Housing").addClass('asset-housing');
     break;
   case "D":
-    $("#asset-class").text("Infrastructure Systems").addClass('asset-infrastructure');
+    $(".asset-class").text("Infrastructure Systems").addClass('asset-infrastructure');
     break;
   case "E":
-    $("#asset-class").text("Natural and Cultural").addClass('asset-natural');
+    $(".asset-class").text("Natural and Cultural").addClass('asset-natural');
     break;
   default:
-    $("#asset-class").text("Missing asset identified by community member");
+    $(".asset-class").text("Missing asset identified by community member");
   } 
   
 });

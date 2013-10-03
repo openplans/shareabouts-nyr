@@ -162,9 +162,50 @@ ul.recent-points {
 }
 
 
-/* stuff for the different asset classes */
-#asset-class {
-  color: white;
+/* =Assets
+-------------------------------------------------------------- */
+
+/* legend */
+.legend {
+  list-style: none;
+  margin: 0;
+  padding: 1em 0;
+  border-bottom: 2px solid #ddd;
+  font-size: 0.85em;
+  font-weight: bold;
+  line-height: 2;
+}
+.legend li {
+  padding: 0 10px;
+}
+.legend span {
+  font-size: 2.5em;
+  line-height: 1;
+  float: left;
+  margin: 0 5px 0 0;
+  position: relative;
+  top: -0.25em;
+/*  text-shadow: -1px -1px 0 #000;*/
+}
+.legend-economic {
+  color: #FF6F75;
+}
+.legend-health {
+  color: #0091FF;
+}
+.legend-housing {
+  color: #F9FF6A;
+}
+.legend-infrastructure {
+  color: #CD95D7;
+}
+.legend-natural {
+  color: #67D666;
+}
+
+/* asset indicator in info-window */
+.asset-class {
+  color: #fff;
   text-transform: uppercase;
   text-decoration: none;
   padding: 0.5em;
@@ -172,21 +213,16 @@ ul.recent-points {
 .asset-economic {
   background: #FF6F75;
 }
-
 .asset-health {
   background: #0091FF;
 }
-
 .asset-housing {
   background: #F9FF6A;
 }
-
 .asset-infrastructure {
   background: #CD95D7;
 }
-
 .asset-natural {
-  color: #fff;
   background: #67D666;
 }
 
