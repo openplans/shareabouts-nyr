@@ -132,6 +132,7 @@ INSTALLED_APPS = (
     'compressor',
 
     # Project apps
+    'nyrising',  # Common NY Rising app.
     'sa_web',
     'proxy',
 )
