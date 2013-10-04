@@ -3,7 +3,7 @@ app:
   # HTML Title
   title: NY Rising
   # Header name
-  name: Rockaway East
+  name: Red Hook
   # Meta description that will show up in Google search results
   meta_description: _(NY Rising)
 
@@ -13,13 +13,13 @@ map:
   geolocation_onload: false
   options:
     center:
-      lat: 40.59332764604569
-      lng: -73.77615451812744
+      lat: 40.67648
+      lng: -74.00474
     zoom: 16
     minZoom: 15
-    maxZoom: 17
+    maxZoom: 18
   base_layer:
-    url: http://{s}.tiles.mapbox.com/v3/openplans.150-NYRising-RE/{z}/{x}/{y}.png
+    url: http://{s}.tiles.mapbox.com/v3/openplans.150-NYRising-RH/{z}/{x}/{y}.png
     attribution: '&copy; OpenStreetMap contributors, CC-BY-SA. <a href="http://mapbox.com/about/maps" target="_blank">Terms &amp; Feedback</a>'
   layers: 
     - id: 'streets'
