@@ -21,7 +21,7 @@ map:
   base_layer:
     url: http://{s}.tiles.mapbox.com/v3/openplans.150-NYRising-RE/{z}/{x}/{y}.png
     attribution: '&copy; OpenStreetMap contributors, CC-BY-SA. <a href="http://mapbox.com/about/maps" target="_blank">Terms &amp; Feedback</a>'
-  layers: 
+  layers:
     - id: 'streets'
       url: http://{s}.tiles.mapbox.com/v3/openplans.map-2eefy58d/{z}/{x}/{y}.png
       type: tiles
@@ -187,7 +187,7 @@ survey:
   # Survey form config
   title: _(Leave a Comment)
   form_link_text: _(Leave a Comment)
-  submit_btn_text: _(Comment)
+  submit_btn_text: _(Suggest Correction)
   items:
     - type: hidden
       name: comment-type
