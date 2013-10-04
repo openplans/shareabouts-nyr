@@ -227,6 +227,55 @@ ul.recent-points {
 }
 
 
+/* =Comment Types
+-------------------------------------------------------------- */
+
+.comment-type-menu {
+  margin: 0 0 1em;
+  padding: 0;
+  border-bottom: 1px solid #aaa;
+}
+.comment-type-menu-list {
+  list-style: none;
+  margin: 0;
+  padding: 0 0.5em;
+}
+.comment-type-menu-list-item {
+  float: left;
+/*  width: 33%;*/
+  margin: 0;
+  padding: 0 !important;
+}
+.comment-type-link {
+  font-size: 1.25em;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  line-height: 2.25;
+  display: block;
+  background: transparent;
+  border: 1px solid transparent;
+  border-bottom: 0;
+  border-radius: 0.5em 0.5em 0 0;
+  margin: 0 0 -1px;
+  padding: 0 1em;
+}
+.comment-type-link.current {
+  background: #fff;
+  border-color: #aaa;
+  color: #444;
+}
+.comment-type-prompt {
+  font-size: 0.85em;
+  font-weight: bold;
+  line-height: 1.325;
+  margin-bottom: 1.5em;
+}
+.response-item-comment-type {
+  display: none;
+}
+
+
 /* =Media Queries
 -------------------------------------------------------------- */
 

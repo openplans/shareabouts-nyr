@@ -189,6 +189,11 @@ survey:
   form_link_text: _(Leave a Comment)
   submit_btn_text: _(Comment)
   items:
+    - type: hidden
+      name: comment-type
+      attrs:
+        - key: value
+          value: comment-type-correction
     - prompt: _(Comment)
       label: _(Comment)
       type: textarea

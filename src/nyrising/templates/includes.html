@@ -42,4 +42,46 @@ $(Shareabouts).on('panelshow', function(evt, app, path) {
   
 });
 
+$(document).ready(function() {
+
+  $(".issues-prompt").hide();   
+  $(".ideas-prompt").hide();
+  $(".comment-type-issue").show();
+  $(".comment-type-idea").show();
+
+  $(".corrections-link").click(function(e) {
+    $(".comment-type-link").removeClass("current");
+    $(this).addClass("current");
+    $(".comment-type-prompt").hide();
+    $(".corrections-prompt").show();
+    $(".comment-type-all").hide();
+    $(".comment-type-correction").show();
+    $("#survey-comment-type").val("comment-type-correction");
+    e.preventDefault();
+  });
+
+  $(".issues-link").click(function(e) {
+    $(".comment-type-link").removeClass("current");
+    $(this).addClass("current");
+    $(".comment-type-prompt").hide();
+    $(".issues-prompt").show();
+    $(".comment-type-all").hide();
+    $(".comment-type-issue").show();
+    $("#survey-comment-type").val("comment-type-issue");
+    e.preventDefault();
+  });
+  
+  $(".ideas-link").click(function(e) {
+    $(".comment-type-link").removeClass("current");
+    $(this).addClass("current");
+    $(".comment-type-prompt").hide();
+    $(".ideas-prompt").show();
+    $(".comment-type-all").hide();
+    $(".comment-type-idea").show();
+    $("#survey-comment-type").val("comment-type-idea");
+    e.preventDefault();
+  });
+
+});
+
 </script>
