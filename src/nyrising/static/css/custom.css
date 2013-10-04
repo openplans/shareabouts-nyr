@@ -209,7 +209,7 @@ ul.recent-points {
   text-transform: uppercase;
   text-decoration: none;
   padding: 0.5em;
-} 
+}
 .asset-economic {
   background: #FF6F75;
 }
@@ -270,11 +270,29 @@ ul.recent-points {
   font-weight: bold;
   line-height: 1.325;
   margin-bottom: 1.5em;
+  display: none;
 }
 .response-item-comment-type {
   display: none;
 }
+.comment-type-all {
+  display: none;
+}
 
+.show-ideas .ideas-prompt,
+.show-ideas .comment-type-idea {
+  display: block
+}
+
+.show-corrections .corrections-prompt,
+.show-corrections .comment-type-correction {
+  display: block;
+}
+
+.show-issues .issues-prompt,
+.show-issues .comment-type-issue {
+  display: block;
+}
 
 /* =Media Queries
 -------------------------------------------------------------- */
