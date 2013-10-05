@@ -13,10 +13,10 @@ map:
   geolocation_onload: false
   options:
     center:
-      lat: 40.67648
-      lng: -74.00474
-    zoom: 16
-    minZoom: 15
+      lat: 40.67621 
+      lng: -74.01450
+    zoom: 17
+    minZoom: 16
     maxZoom: 18
   base_layer:
     url: http://{s}.tiles.mapbox.com/v3/openplans.150-NYRising-RH/{z}/{x}/{y}.png
