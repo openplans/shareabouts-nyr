@@ -1,0 +1,25 @@
+<li class="activity-item clearfix">
+  <a href="/place/{{ place.id }}">{{#_}}<strong>
+    
+  <!-- only showing comments, not creating new places -->
+  
+  {{#if is_place }} 
+  
+    <!-- do nothing -->
+    {{else}}  
+  
+  {{#if target.submitter}}
+    <img src="{{ target.submitter.avatar_url }}" class="avatar" /> {{ target.submitter.name }}
+  {{^}}
+    <!-- TODO: FIXME: don't hardcode image URL -->
+    <img src="/static/css/images/user-50.png" class="avatar" /> {{ target.submitter_name }}
+  {{/if}}
+  </strong>
+
+
+    {{ action }} a{{#if place.type_starts_with_vowel }}n{{/if }} <span class="place-type">"{{ place.place_type_label }}" location</span>
+    {{#if place.name }} named <span class="place-name">{{ place.name }}</span>{{/if }}
+
+  {{/if }}
+  {{/_}}</a>
+</li>
