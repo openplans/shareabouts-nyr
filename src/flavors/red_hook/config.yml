@@ -21,10 +21,6 @@ map:
   base_layer:
     url: http://{s}.tiles.mapbox.com/v3/openplans.150-NYRising-RH/{z}/{x}/{y}.png
     attribution: '&copy; OpenStreetMap contributors, CC-BY-SA. <a href="http://mapbox.com/about/maps" target="_blank">Terms &amp; Feedback</a>'
-  layers: 
-    - id: 'streets'
-      url: http://{s}.tiles.mapbox.com/v3/openplans.map-2eefy58d/{z}/{x}/{y}.png
-      type: tiles
 
 # The keys show up in the dropdown list when you are adding a new place
 # The values map the place type to map icons (defined below).
