@@ -34,7 +34,6 @@ $(Shareabouts).on('panelshow', function(evt, app, path) {
       $correctionsLink = $el.find('.corrections-link'),
       $allLinks = $el.find('.comment-type-link'),
       // input
-      $typeInput = $el.find('#survey-comment-type'),
       $submitBtn = $el.find('[type="submit"]');
 
   // Set asset type
@@ -51,7 +50,7 @@ $(Shareabouts).on('panelshow', function(evt, app, path) {
 
     $el.removeClass('show-ideas show-issues').addClass('show-corrections');
 
-    $typeInput.val('comment-type-correction');
+    $el.find('#survey-comment-type').val('comment-type-correction');
     $el.find('[type="submit"]').val('Suggest Correction');
 
     e.preventDefault();
@@ -63,7 +62,7 @@ $(Shareabouts).on('panelshow', function(evt, app, path) {
 
     $el.removeClass('show-ideas show-corrections').addClass('show-issues');
 
-    $typeInput.val('comment-type-issue');
+    $el.find('#survey-comment-type').val('comment-type-issue');
     $el.find('[type="submit"]').val('Report Issue');
 
     e.preventDefault();
@@ -75,7 +74,7 @@ $(Shareabouts).on('panelshow', function(evt, app, path) {
 
     $el.removeClass('show-issues show-corrections').addClass('show-ideas');
 
-    $typeInput.val('comment-type-idea');
+    $el.find('#survey-comment-type').val('comment-type-idea');
     $el.find('[type="submit"]').val('Share Idea');
 
     e.preventDefault();
