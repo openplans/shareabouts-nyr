@@ -15,9 +15,46 @@
 
 <script type="text/javascript">
 
+var NYRising = {};
+NYRising.makeGeneralCommentsView = function(app) {
+  // Get the first general place (i.e., places with location_type='general').
+  // Use the first one, and bail if there aren't any.
+  var generalPlaces = app.appView.places.where({location_type: 'general'}),
+      generalPlace, surveyView;
+
+  if (generalPlaces.length === 0) {
+    alert('No general places in the dataset.');
+    return;
+  } else {
+    generalPlace = generalPlaces[0];
+  }
+
+  // Emulate the initialize and render processes from a PlaceDetailView that
+  // pertain to the survey rendering.
+  generalPlace.submissionSets.comments = generalPlace.submissionSets.comments ||
+    new Shareabouts.SubmissionCollection(null, {
+      submissionType: 'comments',
+      placeModel: generalPlace
+    });
+
+  surveyView = new Shareabouts.SurveyView({
+    collection: generalPlace.submissionSets.comments,
+    surveyConfig: app.appView.options.surveyConfig
+  });
+
+  // Render the view as-is (collection may have content already)
+  $('.page .survey').html(surveyView.render().$el);
+  // Fetch for submissions and automatically update the element
+  generalPlace.submissionSets.comments.fetch();
+};
+
 $(Shareabouts).on('panelshow', function(evt, app, path) {
 
-  var $el = $('.place-detail'),
+  if (path === 'page/comments') {
+    NYRising.makeGeneralCommentsView(app);
+  }
+
+  var $el = $('.place-detail, .page-comments'),
       $asset = $el.find('.asset-class'),
       asset = $asset.text(),
       assetMap = {
@@ -80,8 +117,12 @@ $(Shareabouts).on('panelshow', function(evt, app, path) {
     e.preventDefault();
   });
 
-  // Init to corrections
-  $correctionsLink.click();
+  // Init to the first link
+  if (path === 'page/comments') {
+    $issuesLink.click();
+  } else {
+    $correctionsLink.click();
+  }
 });
 
 </script>
