@@ -27,13 +27,17 @@
       </header>
 
       <div class="response-body">
+        <div class="clearfix">
 
         {{#items}}
-        <div class="response-item response-item-{{ name }}">
-          <p class="response-value response-value-{{ name }}">{{ value }}</p>
-        </div>
+          {{#if value}}
+          <div class="response-item response-item-{{ name }}">
+            <p class="response-value response-value-{{ name }}">{{ value }}</p>
+          </div>
+          {{/if}}
         {{/items}}
 
+        </div>
       </div>
     </article>
   </li>

@@ -138,6 +138,152 @@ a.reply-link:hover {
 }
 
 
+/* =Issue Tags
+-------------------------------------------------------------- */
+
+.survey-field-retail,
+.survey-field-housing,
+.survey-field-health,
+.survey-field-emergency,
+.survey-field-naturalrecreational,
+.survey-field-transportation,
+.survey-field-utilities,
+.survey-field-coastal,
+.survey-field-flood,
+.survey-field-vulnerable,
+.survey-field-community {
+  float: left;
+  margin: 0 0.25em 0.25em 0 !important;
+  background: #eee;
+  padding: 0.25em 0.5em 0.25em 0.5em;
+  border-radius: 4px;
+}
+.survey-field-retail label,
+.survey-field-housing label,
+.survey-field-health label,
+.survey-field-emergency label,
+.survey-field-naturalrecreational label,
+.survey-field-transportation label,
+.survey-field-utilities label,
+.survey-field-coastal label,
+.survey-field-flood label,
+.survey-field-vulnerable label,
+.survey-field-community label {
+  display: inline;
+  color: #555;
+  font-weight: 900;
+  font-size: 0.85em;
+  white-space: nowrap;
+}
+.survey-widgets-retail,
+.survey-widgets-housing,
+.survey-widgets-health,
+.survey-widgets-emergency,
+.survey-widgets-naturalrecreational,
+.survey-widgets-transportation,
+.survey-widgets-utilities,
+.survey-widgets-coastal,
+.survey-widgets-flood,
+.survey-widgets-vulnerable,
+.survey-widgets-community {
+  display: inline;
+  position: relative;
+  top: -0.325em;
+}
+.survey-label-submitter_name, 
+#place-item-submitter_name {
+  clear: left;
+  padding-top: 1.2em;
+}
+
+/* hide the tags... */
+.survey-field-retail,
+.survey-field-housing,
+.survey-field-health,
+.survey-field-emergency,
+.survey-field-naturalrecreational,
+.survey-field-transportation,
+.survey-field-utilities,
+.survey-field-coastal,
+.survey-field-flood,
+.survey-field-vulnerable,
+.survey-field-community {
+  display: none;
+}
+/* ...unless we're showing issues */
+.show-ideas .survey-field-retail,
+.show-ideas .survey-field-housing,
+.show-ideas .survey-field-health,
+.show-ideas .survey-field-emergency,
+.show-ideas .survey-field-naturalrecreational,
+.show-ideas .survey-field-transportation,
+.show-ideas .survey-field-utilities,
+.show-ideas .survey-field-coastal,
+.show-ideas .survey-field-flood,
+.show-ideas .survey-field-vulnerable,
+.show-ideas .survey-field-community {
+  display: block;
+}
+.show-ideas .survey-field-comment:after {
+  content: "Optionally tag this idea...";
+  color: #888;
+  display: block;
+  font-weight: 900;
+  position: relative;
+  top: 1.2em;
+  margin-bottom: 1.2em;
+}
+
+/* display the tags in ideas... ONLY ideas */
+.response-item-retail,
+.response-item-housing,
+.response-item-health,
+.response-item-emergency,
+.response-item-naturalrecreational,
+.response-item-transportation,
+.response-item-utilities,
+.response-item-coastal,
+.response-item-flood,
+.response-item-vulnerable,
+.response-item-community {
+  display: none;
+}
+.show-ideas .response-item-retail,
+.show-ideas .response-item-housing,
+.show-ideas .response-item-health,
+.show-ideas .response-item-emergency,
+.show-ideas .response-item-naturalrecreational,
+.show-ideas .response-item-transportation,
+.show-ideas .response-item-utilities,
+.show-ideas .response-item-coastal,
+.show-ideas .response-item-flood,
+.show-ideas .response-item-vulnerable,
+.show-ideas .response-item-community {
+  display: block;
+}
+.response-value-retail,
+.response-value-housing,
+.response-value-health,
+.response-value-emergency,
+.response-value-naturalrecreational,
+.response-value-transportation,
+.response-value-utilities,
+.response-value-coastal,
+.response-value-flood,
+.response-value-vulnerable,
+.response-value-community {
+  float: left;
+  margin: 0 0.25em 0.25em 0 !important;
+  background: #ddd;
+  padding: 0.25em 0.5em 0.25em 0.5em;
+  border-radius: 4px;
+  color: #555;
+  font-weight: 900;
+  font-size: 0.85em;
+  white-space: nowrap;
+}
+
+
 /* =The Ticker
 -------------------------------------------------------------- */
 
@@ -293,6 +439,7 @@ ul.recent-points {
 .show-issues .comment-type-issue {
   display: block;
 }
+
 
 /* =Media Queries
 -------------------------------------------------------------- */

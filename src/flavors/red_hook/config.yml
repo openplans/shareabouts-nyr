@@ -213,6 +213,44 @@ survey:
       label: _(Comment)
       type: textarea
       name: comment
+
+    - prompt: _(Economic)
+      type: checkbox
+      name: retail
+      attrs:
+        - key: value
+          value: _(Economic)
+    - prompt: _(Housing)
+      type: checkbox
+      name: housing
+      attrs:
+        - key: value
+          value: _(Housing)
+    - prompt: _(Natural and Recreational Resources)
+      type: checkbox
+      name: naturalrecreational
+      attrs:
+        - key: value
+          value: _(Natural and Recreational Resources)
+    - prompt: _(Health and Social Services)
+      type: checkbox
+      name: health
+      attrs:
+        - key: value
+          value: _(Health and Social Services)
+    - prompt: _(Infrastructure)
+      type: checkbox
+      name: emergency
+      attrs:
+        - key: value
+          value: _(Infrastructure)
+    - prompt: _(Vulnerable Populations)
+      type: checkbox
+      name: vulnerable
+      attrs:
+        - key: value
+          value: _(Vulnerable Populations)
+
     - prompt: _(Your Name)
       type: text
       name: submitter_name
