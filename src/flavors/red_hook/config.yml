@@ -31,37 +31,53 @@ place_types:
     rules:
       - condition: '"{{location_type}}" === "A"'
         style:
-          color: '#FF6F75'
+          color: '#fff'
           weight: 1
-          fillOpacity: 0.5
+          fillOpacity: 0
         focus_style:
-          color: '#FF6F75'
+          color: '#000'
+          weight: 4
+          fillOpacity: 0
+          opacity: 1
+  A-overlay:
+    label: _(Economic)
+    rules:
+      - condition: '"{{location_type}}" === "A-overlay"'
+        style:
+          color: '#fff'
           weight: 1
-          fillOpacity: 0.9
+          fillOpacity: 0
+        focus_style:
+          color: '#000'
+          weight: 4
+          fillOpacity: 0.1
+          opacity: 1
   B:
     label: _(Health and Social Services)
     rules:
       - condition: '"{{location_type}}" === "B"'
         style:
-          color: '#0091FF'
+          color: '#fff'
           weight: 1
-          fillOpacity: 0.5
+          fillOpacity: 0
         focus_style:
-          color: '#0091FF'
-          weight: 1
-          fillOpacity: 0.9
+          color: '#000'
+          weight: 4
+          fillOpacity: 0.1
+          opacity: 1
   C:
     label: _(Housing)
     rules:
       - condition: '"{{location_type}}" === "C"'
         style:
-          color: '#F9FF6A'
+          color: '#fff'
           weight: 1
-          fillOpacity: 0.5
+          fillOpacity: 0
         focus_style:
-          color: '#F9FF6A'
-          weight: 1
-          fillOpacity: 0.9
+          color: '#000'
+          weight: 4
+          fillOpacity: 0.1
+          opacity: 1
   D:
     label: _(Infrastructure Systems)
     rules:
@@ -71,9 +87,10 @@ place_types:
           weight: 1
           fillOpacity: 0.5
         focus_style:
-          color: '#CD95D7'
-          weight: 1
-          fillOpacity: 0.9
+          color: '#000'
+          weight: 4
+          fillOpacity: 0.1
+          opacity: 1
   E:
     label: _(Natural and Cultural)
     rules:
@@ -83,10 +100,23 @@ place_types:
           weight: 1
           fillOpacity: 0.5
         focus_style:
+          color: '#000'
+          weight: 4
+          fillOpacity: 0.1
+          opacity: 1
+  Vacant:
+    label: _(Vacant)
+    rules:
+      - condition: '"{{location_type}}" === ""'
+        style:
           color: '#67D666'
           weight: 1
-          fillOpacity: 0.9
-
+          fillOpacity: 0.5
+        focus_style:
+          color: '#000'
+          weight: 4
+          fillOpacity: 0.1
+          opacity: 1
 activity:
   # Optional. Activity is supported by default. Set to false to disable.
   enabled: true
