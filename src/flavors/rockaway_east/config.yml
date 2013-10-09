@@ -18,84 +18,71 @@ map:
     zoom: 16
     minZoom: 15
     maxZoom: 17
-  base_layer:
-    url: http://{s}.tiles.mapbox.com/v3/openplans.150-NYRising-RE/{z}/{x}/{y}.png
-    attribution: '&copy; OpenStreetMap contributors, CC-BY-SA. <a href="http://mapbox.com/about/maps" target="_blank">Terms &amp; Feedback</a>'
+  layers:
+    - url: http://{s}.tiles.mapbox.com/v3/openplans.150-NYRising-RE/{z}/{x}/{y}.png
+      attribution: '&copy; OpenStreetMap contributors, CC-BY-SA. <a href="http://mapbox.com/about/maps" target="_blank">Terms &amp; Feedback</a>'
 
-# The keys show up in the dropdown list when you are adding a new place
-# The values map the place type to map icons (defined below).
 place_types:
   A:
-    default: blue
-    focused: red
     label: _(Economic)
+    rules:
+      - condition: '"{{location_type}}" === "A"'
+        style:
+          color: '#FF6F75'
+          weight: 1
+          fillOpacity: 0.5
+        focus_style:
+          color: '#FF6F75'
+          weight: 1
+          fillOpacity: 0.9
   B:
-    default: blue
-    focused: red
     label: _(Health and Social Services)
+    rules:
+      - condition: '"{{location_type}}" === "B"'
+        style:
+          color: '#0091FF'
+          weight: 1
+          fillOpacity: 0.5
+        focus_style:
+          color: '#0091FF'
+          weight: 1
+          fillOpacity: 0.9
   C:
-    default: blue
-    focused: red
     label: _(Housing)
+    rules:
+      - condition: '"{{location_type}}" === "C"'
+        style:
+          color: '#F9FF6A'
+          weight: 1
+          fillOpacity: 0.5
+        focus_style:
+          color: '#F9FF6A'
+          weight: 1
+          fillOpacity: 0.9
   D:
-    default: blue
-    focused: red
     label: _(Infrastructure Systems)
+    rules:
+      - condition: '"{{location_type}}" === "D"'
+        style:
+          color: '#CD95D7'
+          weight: 1
+          fillOpacity: 0.5
+        focus_style:
+          color: '#CD95D7'
+          weight: 1
+          fillOpacity: 0.9
   E:
-    default: blue
-    focused: red
     label: _(Natural and Cultural)
-  Aadded:
-    default: blue-puck
-    focused: red
-    label: _(Economic)
-  Badded:
-    default: blue-puck
-    focused: red
-    label: _(Health and Social Services)
-  Cadded:
-    default: blue-puck
-    focused: red
-    label: _(Housing)
-  Dadded:
-    default: blue-puck
-    focused: red
-    label: _(Infrastructure Systems)
-  Eadded:
-    default: blue-puck
-    focused: red
-    label: _(Natural and Cultural)
-# Defines place icons. See http://leaflet.cloudmade.com/reference.html#icon
-# for documention of each property. Any omitted property will be undefined.
-place_type_icons:
-  blue:
-    iconUrl: /static/css/images/dot.png
-    iconSize:
-      width: 17
-      height: 18
-    iconAnchor:
-      x: 9
-      y: 9
-  blue-puck:
-    iconUrl: /static/css/images/markers/dot-2654d2.png
-    iconSize:
-      width: 17
-      height: 18
-    iconAnchor:
-      x: 9
-      y: 9
-  red:
-    iconUrl: /static/css/images/marker-focused.png
-    shadowUrl: /static/css/images/marker-shadow.png
-    iconSize:
-      width: 25
-      height: 41
-    shadowSize:
-      width: 41
-      height: 41
-    iconAnchor:
-      x: 12
-      y: 41
+    rules:
+      - condition: '"{{location_type}}" === "E"'
+        style:
+          color: '#67D666'
+          weight: 1
+          fillOpacity: 0.5
+        focus_style:
+          color: '#67D666'
+          weight: 1
+          fillOpacity: 0.9
 
 
 activity:
