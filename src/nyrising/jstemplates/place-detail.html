@@ -2,10 +2,14 @@
 
 <header class="place-header clearfix">
   <p><span class="asset-class">{{ASSET_CLAS}}</span></p>
-  <h1>{{ displayname }}</h1>
+  <h1>{{ displaynam }}</h1>
 </header>
 
 <section class="place-items">
+  
+  {{#if displayadd}}  
+  <p>{{ displayadd }}.</p>
+  {{/if }}
   
   {{#if ASSET}}  
   <p>{{ASSET}}.</p>
