@@ -19,10 +19,14 @@
       <img src="/static/css/images/user-50.png" class="avatar" /> {{ target.submitter_name }}
     {{/if}}
     </strong>
-
-
-    {{ action }} a{{#if place.type_starts_with_vowel }}n{{/if }} <span class="place-type">"{{ place.place_type_label }}" location</span>
-    {{#if place.name }} named <span class="place-name">{{ place.name }}</span>{{/if }}
+    
+    {{ action }}
+        
+  {{#if place.displaynam }} 
+    {{ place.displaynam }}
+  {{ else }}
+    a{{#if place.type_starts_with_vowel }}n{{/if }} <span class="place-type">"{{ place.place_type_label }}" location</span>
+  {{/if }} 
  
   {{/_}}</a>
 </li>

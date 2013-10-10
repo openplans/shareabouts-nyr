@@ -402,6 +402,9 @@ ul.recent-points {
 .asset-natural {
   background: #67D666;
 }
+.asset-vacant {
+  background: #666;
+}
 
 
 /* =Comment Types

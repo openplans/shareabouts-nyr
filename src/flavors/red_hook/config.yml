@@ -39,19 +39,6 @@ place_types:
           weight: 4
           fillOpacity: 0
           opacity: 1
-  A-overlay:
-    label: _(Economic)
-    rules:
-      - condition: '"{{location_type}}" === "A-overlay"'
-        style:
-          color: '#fff'
-          weight: 1
-          fillOpacity: 0
-        focus_style:
-          color: '#000'
-          weight: 4
-          fillOpacity: 0.1
-          opacity: 1
   B:
     label: _(Health and Social Services)
     rules:
@@ -85,7 +72,7 @@ place_types:
         style:
           color: '#CD95D7'
           weight: 1
-          fillOpacity: 0.5
+          fillOpacity: 0
         focus_style:
           color: '#000'
           weight: 4
@@ -98,20 +85,59 @@ place_types:
         style:
           color: '#67D666'
           weight: 1
-          fillOpacity: 0.5
+          fillOpacity: 0
         focus_style:
           color: '#000'
           weight: 4
           fillOpacity: 0.1
           opacity: 1
-  Vacant:
+  NONE:
     label: _(Vacant)
     rules:
-      - condition: '"{{location_type}}" === ""'
+      - condition: '"{{location_type}}" === "NONE"'
+        style:
+          color: '#999'
+          weight: 1
+          fillOpacity: 0
+        focus_style:
+          color: '#000'
+          weight: 4
+          fillOpacity: 0.1
+          opacity: 1
+  CORRIDOR:
+    label: _(Corridor)
+    rules:
+      - condition: '"{{location_type}}" === "CORRIDOR"'
+        style:
+          color: '#fff'
+          weight: 1
+          fillOpacity: 0
+        focus_style:
+          color: '#000'
+          weight: 4
+          fillOpacity: 0.1
+          opacity: 1
+  GREENWAY:
+    label: _(Greenway)
+    rules:
+      - condition: '"{{location_type}}" === "GREENWAY"'
         style:
           color: '#67D666'
+          weight: 0
+          fillOpacity: 0.3
+        focus_style:
+          color: '#000'
+          weight: 4
+          fillOpacity: 0.1
+          opacity: 1
+  PIER:
+    label: _(Pier)
+    rules:
+      - condition: '"{{location_type}}" === "PIER"'
+        style:
+          color: '#fff'
           weight: 1
-          fillOpacity: 0.5
+          fillOpacity: 0
         focus_style:
           color: '#000'
           weight: 4
