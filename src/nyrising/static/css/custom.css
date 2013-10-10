@@ -431,10 +431,7 @@ ul.recent-points {
   color: #444;
 }
 .comment-type-prompt {
-  font-size: 0.85em;
-  font-weight: bold;
-  line-height: 1.325;
-  margin-bottom: 1.5em;
+  margin-bottom: 1.75em !important;
   display: none;
 }
 .response-item-comment-type {
