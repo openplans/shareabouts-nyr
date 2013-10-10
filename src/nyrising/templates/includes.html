@@ -15,6 +15,63 @@
 
 <script type="text/javascript">
 
+// App.viewComments
+// ----------------
+// Add a route for the general comments
+Shareabouts.App.prototype.routes['comments'] = 'viewComments';
+Shareabouts.App.prototype.viewComments = function() {
+  // Get the first general place (i.e., places with location_type='general').
+  // Use the first one, and bail if there aren't any.
+  var allPlaces = this.collection,
+      generalPlaces = allPlaces.where({location_type: 'general'}),
+      generalPlace;
+
+  if (generalPlaces.length === 0) {
+    alert('No general places in the dataset.');
+    return;
+  } else {
+    generalPlace = generalPlaces[0];
+  }
+
+  this.appView.viewComments(generalPlace);
+};
+
+// AppView.viewComments
+// ---------------------------
+// Show the general comments place. Largely copied from AppView.viewPlace,
+// except without the logic that repositions the map.
+Shareabouts.AppView.prototype.viewComments = function(model) {
+  var map = this.mapView.map,
+      layer, center, placeDetailView;
+
+  if (model) {
+    // Called by the router
+    placeDetailView = this.getPlaceDetailView(model);
+
+    this.$panel.removeClass().addClass('place-detail place-detail-' + model.id);
+    this.showPanel(placeDetailView.render().$el);
+    this.hideNewPin();
+    this.destroyNewModels();
+    this.hideCenterPoint();
+    this.hideAddButton();
+    this.hideInstructions(true);
+
+    // Focus the one we're looking
+    model.trigger('focus');
+  } else {
+    this.options.router.navigate('/');
+  }
+};
+
+$(function() {
+  // Hijack the general comments link in the legend
+  var $commentsLink = $('.legend-general-comments-link');
+  $commentsLink.click(function(evt) {
+    evt.preventDefault();
+    window.app.navigate($commentsLink.attr('href'), {trigger: true});
+  });
+});
+
 $(Shareabouts).on('panelshow', function(evt, app, path) {
 
   var $el = $('.place-detail'),
@@ -34,7 +91,15 @@ $(Shareabouts).on('panelshow', function(evt, app, path) {
       $correctionsLink = $el.find('.corrections-link'),
       $allLinks = $el.find('.comment-type-link'),
       // input
-      $submitBtn = $el.find('[type="submit"]');
+      $submitBtn = $el.find('[type="submit"]'),
+      // for comments
+      headerHtml;
+
+  // Replace the header if this is the comments view
+  if (path === 'comments') {
+    headerHtml = Handlebars.templates['general-comments-header'];
+    $el.find('.place-header').html(headerHtml);
+  }
 
   // Set asset type
   if (assetMap[asset]) {
@@ -80,8 +145,12 @@ $(Shareabouts).on('panelshow', function(evt, app, path) {
     e.preventDefault();
   });
 
-  // Init to corrections
-  $correctionsLink.click();
+  // Init to the first link
+  if (path === 'comments') {
+    $issuesLink.click();
+  } else {
+    $correctionsLink.click();
+  }
 });
 
 </script>

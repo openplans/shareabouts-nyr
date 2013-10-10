@@ -83,6 +83,14 @@ place_types:
           color: '#67D666'
           weight: 1
           fillOpacity: 0.9
+  general:
+    label: _(General)
+    rules:
+      - condition:  '"{{location_type}}" === "general"'
+        style:
+          fillOpacity: 0
+          stroke: false
+          radius: 0
 
 
 activity:

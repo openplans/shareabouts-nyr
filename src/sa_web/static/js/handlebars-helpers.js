@@ -15,6 +15,10 @@ var Shareabouts = Shareabouts || {};
     }
   });
 
+  Handlebars.registerHelper('if_equal', function(value1, value2, options) {
+    return (value1 === value2) ? options.fn(this) : options.inverse(this);
+  });
+
   // Current user -------------------------------------------------------------
 
   Handlebars.registerHelper('is_authenticated', function(options) {

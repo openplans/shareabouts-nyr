@@ -124,6 +124,10 @@
       <li class="clearfix"><span class="legend-housing">&#9632;</span> Housing</li>
       <li class="clearfix"><span class="legend-infrastructure">&#9632;</span> Infrastructure Systems</li>
       <li class="clearfix"><span class="legend-natural">&#9632;</span> Natural and Recreational</li>
+      <li class="clearfix">
+        <hr>
+        <a class="legend-general-comments-link" href="{% url 'index' 'comments' %}">Got a comment about the whole neighborhood?</a>
+      </li>
     </ul>
     <ul class="recent-points"></ul>
   </div>
@@ -228,7 +232,9 @@
 
   (function(S, $){
     // Boostrapping the place types and their icons
-    var placeConfig = {{ config.place|as_json }},
+    var flavorConfig = {{ config.data|as_json }},
+
+        placeConfig = {{ config.place|as_json }},
         placeTypesConfig = {{ config.place_types|as_json }},
 
         surveyConfig = {{ config.survey|as_json }},
@@ -250,6 +256,9 @@
           Shareabouts.bootstrapped.currentUser ?
           'user:' + Shareabouts.bootstrapped.currentUser.id :
           {{ user_token_json|safe }}),
+
+        config: flavorConfig,
+
         placeTypes: placeTypesConfig,
         surveyConfig: surveyConfig,
         supportConfig: supportConfig,
