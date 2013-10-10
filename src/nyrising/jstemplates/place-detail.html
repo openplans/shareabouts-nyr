@@ -2,7 +2,22 @@
 
 <header class="place-header clearfix">
   <p><span class="asset-class">{{ASSET_CLAS}}</span></p>
-  <h1>{{ displaynam }}</h1>
+  <h1>
+    
+    {{# if_equal location_type 'GREENWAY'}} 
+        Brooklyn Waterfront Greenway
+    {{/ if_equal }}
+    
+    {{# if_equal location_type 'PIER'}} 
+        Pier
+    {{/ if_equal }}
+    
+    {{# if_equal Socially_V 'Y'}} 
+        {{ Name }}  
+    {{ else }}
+        {{ displaynam }}
+    {{/ if_equal }}
+</h1>
 </header>
 
 <section class="place-items">
