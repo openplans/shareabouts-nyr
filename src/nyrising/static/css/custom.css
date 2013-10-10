@@ -43,8 +43,11 @@ a:hover {
   font-size: 1em;
   display: block;
   height: 100%;
+  color: #003366;
 }
-#site-title a:hover {}
+#site-title a:hover {
+  color: #004d99;
+}
 #site-logo {
   height: 100%;
   width: auto;
