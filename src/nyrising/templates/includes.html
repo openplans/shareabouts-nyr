@@ -99,6 +99,7 @@ $(Shareabouts).on('panelshow', function(evt, app, path) {
   if (path === 'comments') {
     headerHtml = Handlebars.templates['general-comments-header'];
     $el.find('.place-header').html(headerHtml);
+    $el.addClass('general-comments');
   }
 
   // Set asset type

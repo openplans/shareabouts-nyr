@@ -210,7 +210,7 @@ a.reply-link:hover {
 .survey-field-community {
   display: none;
 }
-/* ...unless we're showing issues */
+/* ...unless we're showing issues OR we're on the general comments page*/
 .show-ideas .survey-field-retail,
 .show-ideas .survey-field-housing,
 .show-ideas .survey-field-health,
@@ -221,11 +221,23 @@ a.reply-link:hover {
 .show-ideas .survey-field-coastal,
 .show-ideas .survey-field-flood,
 .show-ideas .survey-field-vulnerable,
-.show-ideas .survey-field-community {
+.show-ideas .survey-field-community,
+.general-comments .survey-field-retail,
+.general-comments .survey-field-housing,
+.general-comments .survey-field-health,
+.general-comments .survey-field-emergency,
+.general-comments .survey-field-naturalrecreational,
+.general-comments .survey-field-transportation,
+.general-comments .survey-field-utilities,
+.general-comments .survey-field-coastal,
+.general-comments .survey-field-flood,
+.general-comments .survey-field-vulnerable,
+.general-comments .survey-field-community {
   display: block;
 }
-.show-ideas .survey-field-comment:after {
-  content: "Optionally tag this idea...";
+.show-ideas .survey-field-comment:after,
+.general-comments .survey-field-comment:after {
+  content: "Optionally add tags...";
   color: #888;
   display: block;
   font-weight: 900;
