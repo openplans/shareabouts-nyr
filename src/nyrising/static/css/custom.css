@@ -304,6 +304,7 @@ a.reply-link:hover {
 }
 ul.recent-points {
   color: #666;
+  border-top: 2px solid #ddd;
 }
 .recent-points li {
   border-bottom: 2px solid #ddd;
@@ -316,7 +317,7 @@ ul.recent-points {
 }
 .recent-points li:hover a,
 .recent-points a:hover {
-  color: #444;
+  color: #222;
 }
 
 /* General Comments Link*/
