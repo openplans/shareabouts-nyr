@@ -2,46 +2,22 @@
 
 <header class="place-header clearfix">
   <p><span class="asset-class">{{ASSET_CLAS}}</span></p>
-  <h1>{{ Name }}</h1> 
+  <h1>{{ displayname }}</h1>
 </header>
 
 <section class="place-items">
   
-  {{#if user-added}}
-  <p>This {{ place_type_label }} asset added by {{ submitter_name }}.</p> 
-  <p>Comment: {{ DESCRIPTIO }}</p>
-  
-  <hr/>
-  {{/if}}
-  
-  {{#if ASSET}}
-  <p>Address: {{Address}}. {{#if OwnerName}}Owned by: {{OwnerName}}{{/if}}</p>
-  
-  <p>Asset type: {{ASSET}}.</p>
-  <p>Further information about the asset: {{DESCRIPTIO}}. {{SUBHEADING}}</p>
-  
-  
-  <p>Assessed risk factors:</p>
-  <ul>
-    <li>Critical: {{CRITICAL}}</li>
-    <li>Comvalue: {{ComValue}}</li>
-    <li>Zone: {{Zone}}</li>
-  </ul>
- 
-  {{/if}}
+  {{#if ASSET}}  
+  <p>{{ASSET}}.</p>
+  {{/if }}
   
   {{#if notes}}
   <p>{{ notes }}</p>
   {{/if}}
   
-  <!-- 
-  <p>Bldgclass: {{BldgClass}}</p>
-  <p>Building_C: {{BUILDING_C}}</p>
-
-
-  <p>Shoredefen: {{ShoreDefen}}</p>
-  <p>Socially_V: {{Socially_V}}</p>
-  -->
+  {{#if Zone}}
+  <p>Risk zone as defined by NYS DOS Risk Assessment Areas: {{Zone}}</p>
+  {{/if }}
   
 </section>
 
