@@ -307,6 +307,25 @@ ul.recent-points {
   color: #444;
 }
 
+/* General Comments Link*/
+.general-comments-link {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 0.75em 0.25em;
+  margin: 10px 10px 15px;
+  background-color: #004d99;
+  color: #f0f0f0 !important;
+  box-shadow: -4px 4px 0 rgba(85, 85, 85, 0.5);
+}
+.general-comments-link:hover {
+  background-color: #003366;
+}
+.general-comments-link span {
+  white-space: nowrap;
+}
+
 
 /* =Assets
 -------------------------------------------------------------- */

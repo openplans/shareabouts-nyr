@@ -123,11 +123,8 @@
       <li class="clearfix"><span class="legend-housing">&#9632;</span> Housing</li>
       <li class="clearfix"><span class="legend-infrastructure">&#9632;</span> Infrastructure Systems</li>
       <li class="clearfix"><span class="legend-natural">&#9632;</span> Natural and Cultural</li>
-      <li class="clearfix">
-        <hr>
-        <a class="legend-general-comments-link" href="{% url 'index' 'comments' %}">Got a comment about the whole neighborhood?</a>
-      </li>
     </ul>
+    <a class="general-comments-link" href="{% url 'index' 'comments' %}">Got a comment about the <span>whole neighborhood?</span></a>
     <ul class="recent-points"></ul>
   </div>
   <p id="powered-by">{% blocktrans %}Powered by{% endblocktrans %} <a href="http://shareabouts.org/" class="shareabouts-logo">Shareabouts</a>, <span class="nowrap">a project of <a href="http://openplans.org/" class="openplans-logo">OpenPlans</a>.</span></p>
