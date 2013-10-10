@@ -65,10 +65,9 @@ Shareabouts.AppView.prototype.viewComments = function(model) {
 
 $(function() {
   // Hijack the general comments link in the legend
-  var $commentsLink = $('.legend-general-comments-link');
-  $commentsLink.click(function(evt) {
+  $('body').on('click', '.comments-link', function(evt) {
     evt.preventDefault();
-    window.app.navigate($commentsLink.attr('href'), {trigger: true});
+    window.app.navigate($(this).attr('href'), {trigger: true});
   });
 });
 
