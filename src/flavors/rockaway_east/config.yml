@@ -90,6 +90,7 @@ place_types:
         style:
           fillOpacity: 0
           stroke: false
+          radius: 0
 
 
 activity:
