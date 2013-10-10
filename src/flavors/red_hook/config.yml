@@ -32,7 +32,7 @@ place_types:
       - condition: '"{{location_type}}" === "A"'
         style:
           color: '#fff'
-          weight: 1
+          weight: 0
           fillOpacity: 0
         focus_style:
           color: '#000'
@@ -45,7 +45,7 @@ place_types:
       - condition: '"{{location_type}}" === "B"'
         style:
           color: '#fff'
-          weight: 1
+          weight: 0
           fillOpacity: 0
         focus_style:
           color: '#000'
@@ -58,7 +58,7 @@ place_types:
       - condition: '"{{location_type}}" === "C"'
         style:
           color: '#fff'
-          weight: 1
+          weight: 0
           fillOpacity: 0
         focus_style:
           color: '#000'
@@ -71,7 +71,7 @@ place_types:
       - condition: '"{{location_type}}" === "D"'
         style:
           color: '#CD95D7'
-          weight: 1
+          weight: 0
           fillOpacity: 0
         focus_style:
           color: '#000'
@@ -84,7 +84,7 @@ place_types:
       - condition: '"{{location_type}}" === "E"'
         style:
           color: '#67D666'
-          weight: 1
+          weight: 0
           fillOpacity: 0
         focus_style:
           color: '#000'
@@ -97,7 +97,7 @@ place_types:
       - condition: '"{{location_type}}" === "NONE"'
         style:
           color: '#999'
-          weight: 1
+          weight: 0
           fillOpacity: 0
         focus_style:
           color: '#000'
@@ -110,7 +110,7 @@ place_types:
       - condition: '"{{location_type}}" === "CORRIDOR"'
         style:
           color: '#fff'
-          weight: 1
+          weight: 0
           fillOpacity: 0
         focus_style:
           color: '#000'
