@@ -162,6 +162,14 @@ $(Shareabouts).on('panelshow', function(evt, app, path) {
   } else {
     $correctionsLink.click();
   }
+
+  // toggle the help text
+  $el.find('.help-text').hide();
+  $el.find('a.help-btn').click(function(evt) { 
+    evt.preventDefault(); 
+    $(this).siblings('.help-text').toggle(); 
+  });
+
 });
 
 </script>

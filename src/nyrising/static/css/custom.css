@@ -473,6 +473,21 @@ ul.recent-points {
 }
 
 
+/* =Help - Read More
+-------------------------------------------------------------- */
+
+.help {}
+.help-btn {
+  text-decoration: none;
+}
+.help-text {
+  display: block;
+  background: #eee;
+  padding: 0.75em 1em 1em;
+  font-size: 0.85em;
+}
+
+
 /* =Media Queries
 -------------------------------------------------------------- */
 
