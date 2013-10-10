@@ -114,6 +114,9 @@ $(Shareabouts).on('panelshow', function(evt, app, path) {
     $allLinks.removeClass('current');
     $(this).addClass('current');
 
+    // Reset the form
+    $el.find('form').get(0).reset();
+
     $el.removeClass('show-ideas show-issues').addClass('show-corrections');
 
     $el.find('#survey-comment-type').val('comment-type-correction');
@@ -126,6 +129,9 @@ $(Shareabouts).on('panelshow', function(evt, app, path) {
     $allLinks.removeClass('current');
     $(this).addClass('current');
 
+    // Reset the form
+    $el.find('form').get(0).reset();
+
     $el.removeClass('show-ideas show-corrections').addClass('show-issues');
 
     $el.find('#survey-comment-type').val('comment-type-issue');
@@ -137,6 +143,9 @@ $(Shareabouts).on('panelshow', function(evt, app, path) {
   $ideasLink.click(function(e) {
     $allLinks.removeClass('current');
     $(this).addClass('current');
+
+    // Reset the form
+    $el.find('form').get(0).reset();
 
     $el.removeClass('show-issues show-corrections').addClass('show-ideas');
 
