@@ -514,6 +514,10 @@ ul.recent-points {
   #site-title {
     margin-right: 2em;
   }
+  #site-title a:link,
+  #site-title a:visited {
+    font-size: 1em;
+  }
   .app-title {
     font-size: 1.5em;
   }
@@ -540,6 +544,10 @@ ul.recent-points {
   #site-title {
     padding: 1em;
   }
+  #site-title a:link,
+  #site-title a:visited {
+    font-size: 1em;
+  }
   #site-logo {
     margin-right: 1em;
   }
@@ -552,4 +560,8 @@ ul.recent-points {
 }
 
 @media only screen and (min-width: 1300px) {
+  #site-title a:link,
+  #site-title a:visited {
+    font-size: 1em;
+  }
 }
