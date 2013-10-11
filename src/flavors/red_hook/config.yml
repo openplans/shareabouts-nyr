@@ -261,12 +261,12 @@ survey:
       attrs:
         - key: value
           value: _(Housing)
-    - prompt: _(Natural and Recreational Resources)
+    - prompt: _(Natural and Cultural)
       type: checkbox
-      name: naturalrecreational
+      name: naturalcultural
       attrs:
         - key: value
-          value: _(Natural and Recreational Resources)
+          value: _(Natural and Cultural)
     - prompt: _(Health and Social Services)
       type: checkbox
       name: health
