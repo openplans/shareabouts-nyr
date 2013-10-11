@@ -70,6 +70,12 @@ $(function() {
     evt.preventDefault();
     window.app.navigate($commentsLink.attr('href'), {trigger: true});
   });
+
+  // toggle the help text
+  $('body').on('click', 'a.help-btn', function(evt) {
+    evt.preventDefault();
+    $(this).siblings('.help-text').toggleClass('help-text-visible');
+  });
 });
 
 $(Shareabouts).on('panelshow', function(evt, app, path) {
@@ -162,14 +168,6 @@ $(Shareabouts).on('panelshow', function(evt, app, path) {
   } else {
     $correctionsLink.click();
   }
-
-  // toggle the help text
-  $('.help-text').hide();
-  $('a.help-btn').click(function(evt) { 
-    evt.preventDefault(); 
-    $(this).siblings('.help-text').toggle(); 
-  });
-
 });
 
 </script>

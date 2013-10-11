@@ -190,7 +190,7 @@ a.reply-link:hover {
   position: relative;
   top: -0.325em;
 }
-.survey-label-submitter_name, 
+.survey-label-submitter_name,
 #place-item-submitter_name {
   clear: left;
   padding-top: 1.2em;
@@ -480,10 +480,14 @@ ul.recent-points {
   text-decoration: none;
 }
 .help-text {
-  display: block;
+  display: none;
   background: #eee;
   padding: 0.75em 1em 1em;
   font-size: 0.85em;
+}
+
+.help-text.help-text-visible {
+  display: block;
 }
 
 
