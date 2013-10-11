@@ -356,14 +356,13 @@ ul.recent-points {
 .legend li {
   padding: 0 10px;
 }
-.legend span {
+.legend .legend-color  {
   font-size: 2.5em;
   line-height: 1;
   float: left;
   margin: 0 5px 0 0;
   position: relative;
   top: -0.25em;
-/*  text-shadow: -1px -1px 0 #000;*/
 }
 .legend-economic {
   color: #FF6F75;
