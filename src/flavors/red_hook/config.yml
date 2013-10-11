@@ -29,11 +29,22 @@ place_types:
   A:
     label: _(Economic)
     rules:
+      - condition: '"{{location_type}}" === "A" && {{submission_sets.comments.length}} > 0'
+        style:
+          color: '#000'
+          weight: 2
+          opacity: 0.9
+          fillOpacity: 0
+        focus_style:
+          color: '#000'
+          weight: 4
+          fillOpacity: 0
+          opacity: 1
       - condition: '"{{location_type}}" === "A"'
         style:
           color: '#fff'
           weight: 0
-          fillOpacity: 0
+          fillOpacity: 0.4
         focus_style:
           color: '#000'
           weight: 4
@@ -42,11 +53,22 @@ place_types:
   B:
     label: _(Health and Social Services)
     rules:
+      - condition: '"{{location_type}}" === "B" && {{submission_sets.comments.length}} > 0'
+        style:
+          color: '#000'
+          weight: 2
+          opacity: 0.9
+          fillOpacity: 0
+        focus_style:
+          color: '#000'
+          weight: 4
+          fillOpacity: 0
+          opacity: 1
       - condition: '"{{location_type}}" === "B"'
         style:
           color: '#fff'
           weight: 0
-          fillOpacity: 0
+          fillOpacity: 0.4
         focus_style:
           color: '#000'
           weight: 4
@@ -55,11 +77,22 @@ place_types:
   C:
     label: _(Housing)
     rules:
+      - condition: '"{{location_type}}" === "C" && {{submission_sets.comments.length}} > 0'
+        style:
+          color: '#000'
+          weight: 2
+          opacity: 0.9
+          fillOpacity: 0
+        focus_style:
+          color: '#000'
+          weight: 4
+          fillOpacity: 0
+          opacity: 1
       - condition: '"{{location_type}}" === "C"'
         style:
           color: '#fff'
           weight: 0
-          fillOpacity: 0
+          fillOpacity: 0.4
         focus_style:
           color: '#000'
           weight: 4
@@ -68,11 +101,22 @@ place_types:
   D:
     label: _(Infrastructure Systems)
     rules:
+      - condition: '"{{location_type}}" === "D" && {{submission_sets.comments.length}} > 0'
+        style:
+          color: '#000'
+          weight: 2
+          opacity: 0.9
+          fillOpacity: 0
+        focus_style:
+          color: '#000'
+          weight: 4
+          fillOpacity: 0
+          opacity: 1
       - condition: '"{{location_type}}" === "D"'
         style:
-          color: '#CD95D7'
+          color: '#fff'
           weight: 0
-          fillOpacity: 0
+          fillOpacity: 0.4
         focus_style:
           color: '#000'
           weight: 4
@@ -81,11 +125,22 @@ place_types:
   E:
     label: _(Natural and Cultural)
     rules:
+      - condition: '"{{location_type}}" === "E" && {{submission_sets.comments.length}} > 0'
+        style:
+          color: '#000'
+          weight: 2
+          opacity: 0.9
+          fillOpacity: 0
+        focus_style:
+          color: '#000'
+          weight: 4
+          fillOpacity: 0
+          opacity: 1
       - condition: '"{{location_type}}" === "E"'
         style:
-          color: '#67D666'
+          color: '#fff'
           weight: 0
-          fillOpacity: 0
+          fillOpacity: 0.4
         focus_style:
           color: '#000'
           weight: 4
@@ -94,24 +149,46 @@ place_types:
   NONE:
     label: _(Vacant)
     rules:
-      - condition: '"{{location_type}}" === "NONE"'
+      - condition: '"{{location_type}}" === "NONE" && {{submission_sets.comments.length}} > 0'
         style:
-          color: '#999'
-          weight: 0
+          color: '#000'
+          weight: 2
+          opacity: 0.9
           fillOpacity: 0
         focus_style:
           color: '#000'
           weight: 4
-          fillOpacity: 0.1
+          fillOpacity: 0
+          opacity: 1
+      - condition: '"{{location_type}}" === "NONE"'
+        style:
+          color: '#fff'
+          weight: 0
+          fillOpacity: 0.4
+        focus_style:
+          color: '#000'
+          weight: 4
+          fillOpacity: 0.4
           opacity: 1
   CORRIDOR:
     label: _(Corridor)
     rules:
+      - condition: '"{{location_type}}" === "CORRIDOR" && {{submission_sets.comments.length}} > 0'
+        style:
+          color: '#000'
+          weight: 2
+          opacity: 0.9
+          fillOpacity: 0
+        focus_style:
+          color: '#000'
+          weight: 4
+          fillOpacity: 0
+          opacity: 1
       - condition: '"{{location_type}}" === "CORRIDOR"'
         style:
           color: '#fff'
           weight: 0
-          fillOpacity: 0
+          fillOpacity: 0.4
         focus_style:
           color: '#000'
           weight: 4
@@ -120,11 +197,22 @@ place_types:
   GREENWAY:
     label: _(Greenway)
     rules:
+      - condition: '"{{location_type}}" === "GREENWAY" && {{submission_sets.comments.length}} > 0'
+        style:
+          color: '#000'
+          weight: 2
+          opacity: 0.9
+          fillOpacity: 0
+        focus_style:
+          color: '#000'
+          weight: 4
+          fillOpacity: 0
+          opacity: 1
       - condition: '"{{location_type}}" === "GREENWAY"'
         style:
-          color: '#67D666'
+          color: '#fff'
           weight: 0
-          fillOpacity: 0.3
+          fillOpacity: 0.4
         focus_style:
           color: '#000'
           weight: 4
@@ -133,11 +221,22 @@ place_types:
   PIER:
     label: _(Pier)
     rules:
+      - condition: '"{{location_type}}" === "PIER" && {{submission_sets.comments.length}} > 0'
+        style:
+          color: '#000'
+          weight: 2
+          opacity: 0.9
+          fillOpacity: 0
+        focus_style:
+          color: '#000'
+          weight: 4
+          fillOpacity: 0
+          opacity: 1
       - condition: '"{{location_type}}" === "PIER"'
         style:
           color: '#fff'
-          weight: 1
-          fillOpacity: 0
+          weight: 0
+          fillOpacity: 0.4
         focus_style:
           color: '#000'
           weight: 4
