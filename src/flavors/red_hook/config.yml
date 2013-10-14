@@ -143,6 +143,19 @@ place_types:
           weight: 4
           fillOpacity: 0.1
           opacity: 1
+  ROAD:
+    label: _(Pier)
+    rules:
+      - condition: '"{{location_type}}" === "ROAD"'
+        style:
+          color: '#fff'
+          weight: 1
+          fillOpacity: 0
+        focus_style:
+          color: '#000'
+          weight: 4
+          fillOpacity: 0.1
+          opacity: 1  
   general:
     label: _(General)
     rules:
