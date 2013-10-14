@@ -60,8 +60,19 @@
       // Focus the one we're looking
       model.trigger('focus');
 
-      model.submissionSets.comments.on('reset add', function() {
-        showIssues();
+      model.submissionSets.comments.on('reset', function(collection) {
+        var sorted = _.sortBy(model.submissionSets.comments.toJSON(), 'created_datetime');
+            newest = _.last(sorted);
+
+        if (newest) {
+          if (newest['comment-type'] === 'comment-type-issue') {
+            showIssues();
+          } else if (newest['comment-type'] === 'comment-type-idea') {
+            showIdeas();
+          }
+        } else {
+          showIssues();
+        }
       });
     } else {
       this.options.router.navigate('/');

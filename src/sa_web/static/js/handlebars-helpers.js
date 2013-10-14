@@ -65,15 +65,12 @@ var Shareabouts = Shareabouts || {};
     return a.length;
   });
 
-  Handlebars.registerHelper('get_first_type_with_comments', function(options) {
+  Handlebars.registerHelper('get_most_recent_type', function(options) {
     var order = ['comment-type-correction', 'comment-type-issue', 'comment-type-idea'],
-        counts = _.countBy(this.responses, 'comment-type'),
-        i, first;
+        sorted = _.sortBy(this.responses, 'created_datetime');
 
-    for (i=0; i<order.length; i++) {
-      if (counts[order[i]] > 0) {
-        return order[i];
-      }
+    if (sorted.length) {
+      return _.last(sorted)['comment-type'];
     }
 
     return order[0];
