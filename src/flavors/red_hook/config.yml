@@ -31,216 +31,252 @@ place_types:
     rules:
       - condition: '"{{location_type}}" === "A" && {{submission_sets.comments.length}} > 0'
         style:
-          color: '#000'
-          weight: 2
+          color: '#800004'
+          weight: 2.5
           opacity: 0.9
           fillOpacity: 0
+          dashArray: '1 4'
         focus_style:
-          color: '#000'
-          weight: 4
-          fillOpacity: 0
+          color: '#800004'
+          weight: 3
+          fillColor: '#800004'
+          fillOpacity: 0.5
           opacity: 1
+          dashArray: null
       - condition: '"{{location_type}}" === "A"'
         style:
-          color: '#fff'
+          color: '#800004'
           weight: 0
-          fillOpacity: 0.4
-        focus_style:
-          color: '#000'
-          weight: 4
           fillOpacity: 0
+        focus_style:
+          color: '#800004'
+          weight: 3
+          fillColor: '#800004'
+          fillOpacity: 0.5
           opacity: 1
   B:
     label: _(Health and Social Services)
     rules:
       - condition: '"{{location_type}}" === "B" && {{submission_sets.comments.length}} > 0'
         style:
-          color: '#000'
+          color: '#003e6e'
           weight: 2
           opacity: 0.9
           fillOpacity: 0
+          dashArray: '1 4'
         focus_style:
-          color: '#000'
-          weight: 4
-          fillOpacity: 0
+          color: '#003e6e'
+          weight: 3
+          fillColor: '#003e6e'
+          fillOpacity: 0.5
           opacity: 1
+          dashArray: null
       - condition: '"{{location_type}}" === "B"'
         style:
-          color: '#fff'
+          color: '#003e6e'
           weight: 0
-          fillOpacity: 0.4
+          fillOpacity: 0
         focus_style:
-          color: '#000'
-          weight: 4
-          fillOpacity: 0.1
+          color: '#003e6e'
+          weight: 3
+          fillColor: '#003e6e'
+          fillOpacity: 0.5
           opacity: 1
   C:
     label: _(Housing)
     rules:
       - condition: '"{{location_type}}" === "C" && {{submission_sets.comments.length}} > 0'
         style:
-          color: '#000'
+          color: '#565900'
           weight: 2
           opacity: 0.9
           fillOpacity: 0
+          dashArray: '1 4'
         focus_style:
-          color: '#000'
-          weight: 4
-          fillOpacity: 0
+          color: '#565900'
+          weight: 3
+          fillColor: '#565900'
+          fillOpacity: 0.5
           opacity: 1
+          dashArray: null
       - condition: '"{{location_type}}" === "C"'
         style:
-          color: '#fff'
+          color: '#565900'
           weight: 0
-          fillOpacity: 0.4
+          fillOpacity: 0
         focus_style:
-          color: '#000'
-          weight: 4
-          fillOpacity: 0.1
+          color: '#565900'
+          weight: 3
+          fillColor: '#565900'
+          fillOpacity: 0.5
           opacity: 1
   D:
     label: _(Infrastructure Systems)
     rules:
       - condition: '"{{location_type}}" === "D" && {{submission_sets.comments.length}} > 0'
         style:
-          color: '#000'
+          color: '#6c0080'
           weight: 2
           opacity: 0.9
           fillOpacity: 0
+          dashArray: '1 4'
         focus_style:
-          color: '#000'
-          weight: 4
-          fillOpacity: 0
+          color: '#6c0080'
+          weight: 3
+          fillColor: '#6c0080'
+          fillOpacity: 0.5
           opacity: 1
+          dashArray: null
       - condition: '"{{location_type}}" === "D"'
         style:
-          color: '#fff'
+          color: '#6c0080'
           weight: 0
-          fillOpacity: 0.4
+          fillOpacity: 0
         focus_style:
-          color: '#000'
-          weight: 4
-          fillOpacity: 0.1
+          color: '#6c0080'
+          weight: 3
+          fillColor: '#6c0080'
+          fillOpacity: 0.5
           opacity: 1
   E:
     label: _(Natural and Cultural)
     rules:
       - condition: '"{{location_type}}" === "E" && {{submission_sets.comments.length}} > 0'
         style:
-          color: '#000'
+          color: '#026600'
           weight: 2
           opacity: 0.9
           fillOpacity: 0
+          dashArray: '1 4'
         focus_style:
-          color: '#000'
-          weight: 4
-          fillOpacity: 0
+          color: '#026600'
+          weight: 3
+          fillColor: '#026600'
+          fillOpacity: 0.5
           opacity: 1
+          dashArray: null
       - condition: '"{{location_type}}" === "E"'
         style:
-          color: '#fff'
+          color: '#026600'
           weight: 0
-          fillOpacity: 0.4
+          fillOpacity: 0
         focus_style:
-          color: '#000'
-          weight: 4
-          fillOpacity: 0.1
+          color: '#026600'
+          weight: 3
+          fillColor: '#026600'
+          fillOpacity: 0.5
           opacity: 1
   NONE:
     label: _(Vacant)
     rules:
       - condition: '"{{location_type}}" === "NONE" && {{submission_sets.comments.length}} > 0'
         style:
-          color: '#000'
+          color: '#555'
           weight: 2
           opacity: 0.9
           fillOpacity: 0
+          dashArray: '1 4'
         focus_style:
-          color: '#000'
-          weight: 4
-          fillOpacity: 0
+          color: '#555'
+          weight: 3
+          fillColor: '#555'
+          fillOpacity: 0.5
           opacity: 1
+          dashArray: null
       - condition: '"{{location_type}}" === "NONE"'
         style:
-          color: '#fff'
+          color: '#555'
           weight: 0
-          fillOpacity: 0.4
+          fillOpacity: 0
         focus_style:
-          color: '#000'
-          weight: 4
-          fillOpacity: 0.4
+          color: '#555'
+          weight: 3
+          fillColor: '#555'
+          fillOpacity: 0.5
           opacity: 1
   CORRIDOR:
     label: _(Corridor)
     rules:
       - condition: '"{{location_type}}" === "CORRIDOR" && {{submission_sets.comments.length}} > 0'
         style:
-          color: '#000'
+          color: '#555'
           weight: 2
           opacity: 0.9
           fillOpacity: 0
+          dashArray: '1 4'
         focus_style:
-          color: '#000'
-          weight: 4
-          fillOpacity: 0
+          color: '#555'
+          weight: 3
+          fillColor: '#555'
+          fillOpacity: 0.5
           opacity: 1
+          dashArray: null
       - condition: '"{{location_type}}" === "CORRIDOR"'
         style:
-          color: '#fff'
+          color: '#555'
           weight: 0
-          fillOpacity: 0.4
+          fillOpacity: 0
         focus_style:
-          color: '#000'
-          weight: 4
-          fillOpacity: 0.1
+          color: '#555'
+          weight: 3
+          fillColor: '#555'
+          fillOpacity: 0.5
           opacity: 1
   GREENWAY:
     label: _(Greenway)
     rules:
       - condition: '"{{location_type}}" === "GREENWAY" && {{submission_sets.comments.length}} > 0'
         style:
-          color: '#000'
+          color: '#555'
           weight: 2
           opacity: 0.9
           fillOpacity: 0
+          dashArray: '1 4'
         focus_style:
-          color: '#000'
-          weight: 4
-          fillOpacity: 0
+          color: '#555'
+          weight: 3
+          fillColor: '#555'
+          fillOpacity: 0.5
           opacity: 1
+          dashArray: null
       - condition: '"{{location_type}}" === "GREENWAY"'
         style:
-          color: '#fff'
+          color: '#555'
           weight: 0
-          fillOpacity: 0.4
+          fillOpacity: 0
         focus_style:
-          color: '#000'
-          weight: 4
-          fillOpacity: 0.1
+          color: '#555'
+          weight: 3
+          fillColor: '#555'
+          fillOpacity: 0.5
           opacity: 1
   PIER:
     label: _(Pier)
     rules:
       - condition: '"{{location_type}}" === "PIER" && {{submission_sets.comments.length}} > 0'
         style:
-          color: '#000'
+          color: '#555'
           weight: 2
           opacity: 0.9
           fillOpacity: 0
+          dashArray: '1 4'
         focus_style:
-          color: '#000'
-          weight: 4
-          fillOpacity: 0
+          color: '#555'
+          weight: 3
+          fillColor: '#555'
+          fillOpacity: 0.5
           opacity: 1
+          dashArray: null
       - condition: '"{{location_type}}" === "PIER"'
         style:
-          color: '#fff'
+          color: '#555'
           weight: 0
-          fillOpacity: 0.4
+          fillOpacity: 0
         focus_style:
-          color: '#000'
-          weight: 4
-          fillOpacity: 0.1
+          color: '#555'
+          weight: 3
+          fillColor: '#555'
+          fillOpacity: 0.5
           opacity: 1
   general:
     label: _(General)
