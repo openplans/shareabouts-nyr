@@ -230,7 +230,8 @@ place_types:
           color: '#555'
           weight: 2
           opacity: 0.9
-          fillOpacity: 0
+          fillColor: '#ae8'
+          fillOpacity: 1
           dashArray: '1 4'
         focus_style:
           color: '#555'
@@ -243,7 +244,8 @@ place_types:
         style:
           color: '#555'
           weight: 0
-          fillOpacity: 0
+          fillColor: '#ae8'
+          fillOpacity: 0.5
         focus_style:
           color: '#555'
           weight: 3
@@ -445,7 +447,7 @@ support:
   anonymous_name: _(Someone)
 
 pages:
-  - title: _(About)
+  - title: _(What to do)
     slug: about
     name: overview
     start_page: true
