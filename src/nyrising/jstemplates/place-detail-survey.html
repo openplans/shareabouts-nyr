@@ -7,9 +7,36 @@
 
 <!-- <a href="#reply" class="reply-link">{{ survey_config.form_link_text }}</a> -->
 
+<div class="survey-container {{ get_first_type_with_comments }}">
+
+<nav class="comment-type-menu clearfix">
+  <ul class="comment-type-menu-list">
+    <li class="comment-type-menu-list-item corrections-list-item"><a href="#" class="comment-type-link corrections-link">Corrections
+      <span class="comment-count comment-count-{{count responses "comment-type" "comment-type-correction"}}">
+        ({{count responses "comment-type" "comment-type-correction"}})
+      </span>
+    </a></li>
+    <li class="comment-type-menu-list-item issues-list-item"><a href="#" class="comment-type-link issues-link">Needs
+      <span class="comment-count comment-count-{{count responses "comment-type" "comment-type-issue"}}">
+        ({{count responses "comment-type" "comment-type-issue"}})
+      </span>
+    </a></li>
+    <li class="comment-type-menu-list-item ideas-list-item"><a href="#" class="comment-type-link ideas-link">Ideas
+      <span class="comment-count comment-count-{{count responses "comment-type" "comment-type-idea"}}">
+        ({{count responses "comment-type" "comment-type-idea"}})
+      </span>
+    </a></li>
+  </ul>
+</nav>
+
+<p class="comment-type-prompt corrections-prompt">Tell us what we have missed or gotten wrong.</p>
+<p class="comment-type-prompt issues-prompt">Tell us about this asset’s <strong>storm recovery and resiliency needs</strong>, such as the need to repair or replace a damaged asset, the need to make an asset more resilient, or the need to create a new asset to support resiliency.</p>
+<p class="comment-type-prompt ideas-prompt">Suggest projects and actions for rebuilding and resiliency for this asset or location.</p>
+
+
 <ol class="responses">
   {{#responses}}
-  <li class="comment-type-all {{ comment-type }}">
+  <li class="comment-type {{ comment-type }}-list-item">
     <article class="response">
       <header class="response-header clearfix">
         {{#_}}<strong class="response-submitter">
@@ -98,3 +125,5 @@
     <input name="commit" type="submit" value="{{ survey_config.submit_btn_text }}" class="bttn">
   </form>
 </div>
+
+<div>

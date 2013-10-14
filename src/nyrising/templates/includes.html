@@ -15,152 +15,154 @@
 
 <script type="text/javascript">
 
-// App.viewComments
-// ----------------
-// Add a route for the general comments
-Shareabouts.App.prototype.routes['comments'] = 'viewComments';
-Shareabouts.App.prototype.viewComments = function() {
-  // Get the first general place (i.e., places with location_type='general').
-  // Use the first one, and bail if there aren't any.
-  var allPlaces = this.collection,
-      generalPlaces = allPlaces.where({location_type: 'general'}),
-      generalPlace;
+(function(S) {
+  // App.viewComments
+  // ----------------
+  // Add a route for the general comments
+  S.App.prototype.routes['comments'] = 'viewComments';
+  S.App.prototype.viewComments = function() {
+    // Get the first general place (i.e., places with location_type='general').
+    // Use the first one, and bail if there aren't any.
+    var allPlaces = this.collection,
+        generalPlaces = allPlaces.where({location_type: 'general'}),
+        generalPlace;
 
-  if (generalPlaces.length === 0) {
-    alert('No general places in the dataset.');
-    return;
-  } else {
-    generalPlace = generalPlaces[0];
-  }
+    if (generalPlaces.length === 0) {
+      alert('No general places in the dataset.');
+      return;
+    } else {
+      generalPlace = generalPlaces[0];
+    }
 
-  this.appView.viewComments(generalPlace);
-};
+    this.appView.viewComments(generalPlace);
+  };
 
-// AppView.viewComments
-// ---------------------------
-// Show the general comments place. Largely copied from AppView.viewPlace,
-// except without the logic that repositions the map.
-Shareabouts.AppView.prototype.viewComments = function(model) {
-  var map = this.mapView.map,
-      layer, center, placeDetailView;
+  // AppView.viewComments
+  // ---------------------------
+  // Show the general comments place. Largely copied from AppView.viewPlace,
+  // except without the logic that repositions the map.
+  S.AppView.prototype.viewComments = function(model) {
+    var map = this.mapView.map,
+        layer, center, placeDetailView;
 
-  if (model) {
-    // Called by the router
-    placeDetailView = this.getPlaceDetailView(model);
+    if (model) {
+      // Called by the router
+      placeDetailView = this.getPlaceDetailView(model);
 
-    this.$panel.removeClass().addClass('place-detail place-detail-' + model.id);
-    this.showPanel(placeDetailView.render().$el);
-    this.hideNewPin();
-    this.destroyNewModels();
-    this.hideCenterPoint();
-    this.hideAddButton();
-    this.hideInstructions(true);
+      this.$panel.removeClass().addClass('place-detail place-detail-' + model.id);
+      this.showPanel(placeDetailView.render().$el);
+      this.hideNewPin();
+      this.destroyNewModels();
+      this.hideCenterPoint();
+      this.hideAddButton();
+      this.hideInstructions(true);
 
-    // Focus the one we're looking
-    model.trigger('focus');
-  } else {
-    this.options.router.navigate('/');
-  }
-};
+      // Focus the one we're looking
+      model.trigger('focus');
 
-$(function() {
-  // Hijack the general comments link in the legend
-  $('body').on('click', '.comments-link', function(evt) {
-    evt.preventDefault();
-    window.app.navigate($(this).attr('href'), {trigger: true});
-  });
-});
+      model.submissionSets.comments.on('reset add', function() {
+        showIssues();
+      });
+    } else {
+      this.options.router.navigate('/');
+    }
+  };
 
-$(Shareabouts).on('panelshow', function(evt, app, path) {
-
-  var $el = $('.place-detail'),
-      $asset = $el.find('.asset-class'),
-      asset = $asset.text(),
-      assetMap = {
-        'A': { 'name': 'Economic', 'cssclass': 'asset-economic'},
-        'B': { 'name': 'Health and Social Services', 'cssclass': 'asset-health'},
-        'C': { 'name': 'Housing', 'cssclass': 'asset-housing'},
-        'D': { 'name': 'Infrastructure Systems', 'cssclass': 'asset-infrastructure'},
-        'E': { 'name': 'Natural and Cultural', 'cssclass': 'asset-natural'},
-        'NONE': { 'name': 'Vacant', 'cssclass': 'asset-vacant'},
-        'other': { 'name': 'Missing asset identified by community member'}
-      },
-      // tab links
-      $issuesLink = $el.find('.issues-link'),
-      $ideasLink = $el.find('.ideas-link'),
-      $correctionsLink = $el.find('.corrections-link'),
-      $allLinks = $el.find('.comment-type-link'),
-      // input
-      $submitBtn = $el.find('[type="submit"]'),
-      // for comments
-      headerHtml;
-
-  // Replace the header if this is the comments view
-  if (path === 'comments') {
-    headerHtml = Handlebars.templates['general-comments-header'];
-    $el.find('.place-header').html(headerHtml);
-    $el.addClass('general-comments');
-  }
-
-  // Set asset type
-  if (assetMap[asset]) {
-    $asset.text(assetMap[asset].name).addClass(assetMap[asset].cssclass);
-  } else {
-    $asset.text(assetMap.other.name).addClass(assetMap.other.cssclass);
-  }
-
-  // panel tabs
-  $correctionsLink.click(function(e) {
-    $allLinks.removeClass('current');
-    $(this).addClass('current');
+  function showCorrections() {
+    var $el = $('#content .survey-container'),
+        // This is used in the CSS - be aware!
+        val = 'comment-type-correction';
 
     // Reset the form
     $el.find('form').get(0).reset();
 
-    $el.removeClass('show-ideas show-issues').addClass('show-corrections');
-
-    $el.find('#survey-comment-type').val('comment-type-correction');
+    $el.removeClass('comment-type-idea comment-type-issue').addClass(val);
+    $el.find('#survey-comment-type').val(val);
     $el.find('[type="submit"]').val('Suggest Correction');
+  };
 
-    e.preventDefault();
-  });
-
-  $issuesLink.click(function(e) {
-    $allLinks.removeClass('current');
-    $(this).addClass('current');
+  function showIssues() {
+    var $el = $('#content .survey-container'),
+        // This is used in the CSS - be aware!
+        val = 'comment-type-issue';
 
     // Reset the form
     $el.find('form').get(0).reset();
 
-    $el.removeClass('show-ideas show-corrections').addClass('show-issues');
-
-    $el.find('#survey-comment-type').val('comment-type-issue');
+    $el.removeClass('comment-type-idea comment-type-correction').addClass(val);
+    $el.find('#survey-comment-type').val(val);
     $el.find('[type="submit"]').val('Report Issue');
+  }
 
-    e.preventDefault();
-  });
-
-  $ideasLink.click(function(e) {
-    $allLinks.removeClass('current');
-    $(this).addClass('current');
+  function showIdeas() {
+    var $el = $('#content .survey-container'),
+        // This is used in the CSS - be aware!
+        val = 'comment-type-idea';
 
     // Reset the form
     $el.find('form').get(0).reset();
 
-    $el.removeClass('show-issues show-corrections').addClass('show-ideas');
-
-    $el.find('#survey-comment-type').val('comment-type-idea');
+    $el.removeClass('comment-type-issue comment-type-correction').addClass(val);
+    $el.find('#survey-comment-type').val(val);
     $el.find('[type="submit"]').val('Share Idea');
+  }
 
-    e.preventDefault();
+  $(function() {
+    function handleCorrectionClick(evt) {
+      evt.preventDefault();
+      showCorrections();
+    }
+    function handleIssueClick(evt) {
+      evt.preventDefault();
+      showIssues();
+    }
+    function handleIdeaClick(evt) {
+      evt.preventDefault();
+      showIdeas();
+    }
+
+    // Hijack the general comments link in the legend
+    $('body').on('click', '.comments-link', function(evt) {
+      evt.preventDefault();
+      window.app.navigate($(this).attr('href'), {trigger: true});
+    });
+
+    $('#content').on('click', '.corrections-link', handleCorrectionClick);
+    $('#content').on('click', '.issues-link', handleIssueClick);
+    $('#content').on('click', '.ideas-link', handleIdeaClick);
   });
 
-  // Init to the first link
-  if (path === 'comments') {
-    $issuesLink.click();
-  } else {
-    $correctionsLink.click();
-  }
-});
+  $(S).on('panelshow', function(evt, app, path) {
+
+    var $el = $('.place-detail'),
+        $asset = $el.find('.asset-class'),
+        asset = $asset.text(),
+        assetMap = {
+          'A': { 'name': 'Economic', 'cssclass': 'asset-economic'},
+          'B': { 'name': 'Health and Social Services', 'cssclass': 'asset-health'},
+          'C': { 'name': 'Housing', 'cssclass': 'asset-housing'},
+          'D': { 'name': 'Infrastructure Systems', 'cssclass': 'asset-infrastructure'},
+          'E': { 'name': 'Natural and Cultural', 'cssclass': 'asset-natural'},
+          'NONE': { 'name': 'Vacant', 'cssclass': 'asset-vacant'},
+          'other': { 'name': 'Missing asset identified by community member'}
+        },
+        // for comments
+        headerHtml;
+
+    // Replace the header if this is the comments view
+    if (path === 'comments') {
+      headerHtml = Handlebars.templates['general-comments-header'];
+      $el.find('.place-header').html(headerHtml);
+      $el.addClass('general-comments');
+    }
+
+    // Set asset type
+    if (assetMap[asset]) {
+      $asset.text(assetMap[asset].name).addClass(assetMap[asset].cssclass);
+    } else {
+      $asset.text(assetMap.other.name).addClass(assetMap.other.cssclass);
+    }
+  });
+}(Shareabouts));
 
 </script>

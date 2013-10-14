@@ -3,17 +3,17 @@
 <header class="place-header clearfix">
   <p><span class="asset-class">{{ASSET_CLAS}}</span></p>
   <h1>
-    
-    {{# if_equal location_type 'GREENWAY'}} 
+
+    {{# if_equal location_type 'GREENWAY'}}
         Brooklyn Waterfront Greenway
     {{/ if_equal }}
-    
-    {{# if_equal location_type 'PIER'}} 
+
+    {{# if_equal location_type 'PIER'}}
         Pier
     {{/ if_equal }}
-    
-    {{# if_equal Socially_V 'Y'}} 
-        {{ Name }}  
+
+    {{# if_equal Socially_V 'Y'}}
+        {{ Name }}
     {{ else }}
         {{ displaynam }}
     {{/ if_equal }}
@@ -21,45 +21,29 @@
 </header>
 
 <section class="place-items">
-  
-  {{#if displayadd}}  
+
+  {{#if displayadd}}
   <p>{{ displayadd }}.</p>
   {{/if }}
-  
-  {{#if ASSET}}  
+
+  {{#if ASSET}}
   <p>{{ASSET}}.</p>
   {{/if }}
-  
+
   {{#if notes}}
   <p>{{ notes }}</p>
   {{/if}}
-  
+
   {{#if Zone}}
   <p>Risk zone as defined by NYS DOS Risk Assessment Areas: {{Zone}}</p>
   {{/if }}
-  
+
 </section>
 
-<nav class="comment-type-menu clearfix">
-  <ul class="comment-type-menu-list">
-
-  {{# if_equal location_type 'general' }}
-    <li class="comment-type-menu-list-item"><a href="#" class="comment-type-link issues-link current">Needs</a></li>
-    <li class="comment-type-menu-list-item"><a href="#" class="comment-type-link ideas-link">Ideas</a></li>
-  {{ else }}
-    <li class="comment-type-menu-list-item"><a href="#" class="comment-type-link corrections-link current">Corrections</a></li>
-    <li class="comment-type-menu-list-item"><a href="#" class="comment-type-link issues-link">Needs</a></li>
-    <li class="comment-type-menu-list-item"><a href="#" class="comment-type-link ideas-link">Ideas</a></li>
-  {{/ if_equal }}
-  </ul>
-</nav>
-
-{{^ if_equal location_type 'general' }}
-<p class="comment-type-prompt corrections-prompt">Tell us what we have missed or gotten wrong.</p>
-{{/ if_equal }}
-<p class="comment-type-prompt issues-prompt">Tell us about this asset’s <strong>storm recovery and resiliency needs</strong>, such as the need to repair or replace a damaged asset, the need to make an asset more resilient, or the need to create a new asset to support resiliency.</p>
-<p class="comment-type-prompt ideas-prompt">Suggest projects and actions for rebuilding and resiliency for this asset or location.</p>
-
 {{#survey_config}}
-<section class="survey"></section>
+<section class="survey
+  {{# if_equal location_type 'general'}}
+      general-comments
+  {{/ if_equal }}
+"></section>
 {{/survey_config}}

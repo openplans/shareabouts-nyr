@@ -193,7 +193,7 @@ a.reply-link:hover {
   position: relative;
   top: -0.325em;
 }
-.survey-label-submitter_name, 
+.survey-label-submitter_name,
 #place-item-submitter_name {
   clear: left;
   padding-top: 1.2em;
@@ -445,11 +445,6 @@ ul.recent-points {
   margin: 0 0 -1px;
   padding: 0 1em;
 }
-.comment-type-link.current {
-  background: #fff;
-  border-color: #aaa;
-  color: #444;
-}
 .comment-type-prompt {
   margin-bottom: 1.75em !important;
   display: none;
@@ -457,23 +452,51 @@ ul.recent-points {
 .response-item-comment-type {
   display: none;
 }
-.comment-type-all {
+.comment-type {
   display: none;
 }
 
-.show-ideas .ideas-prompt,
-.show-ideas .comment-type-idea {
+.comment-type-idea .ideas-prompt,
+.comment-type-idea .comment-type-idea-list-item {
   display: block
 }
 
-.show-corrections .corrections-prompt,
-.show-corrections .comment-type-correction {
+.comment-type-idea .ideas-link {
+  background: #fff;
+  border-color: #aaa;
+  color: #444;
+}
+
+.comment-type-correction .corrections-prompt,
+.comment-type-correction .comment-type-correction-list-item {
   display: block;
 }
 
-.show-issues .issues-prompt,
-.show-issues .comment-type-issue {
+.comment-type-correction .corrections-link {
+  background: #fff;
+  border-color: #aaa;
+  color: #444;
+}
+
+.comment-type-issue .issues-prompt,
+.comment-type-issue .comment-type-issue-list-item {
   display: block;
+}
+
+.comment-type-issue .issues-link {
+  background: #fff;
+  border-color: #aaa;
+  color: #444;
+}
+
+
+.general-comments .corrections-list-item,
+.general-comments .corrections-prompt {
+  display: none;
+}
+
+.comment-count-0 {
+  display: none;
 }
 
 

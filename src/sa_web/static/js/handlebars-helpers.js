@@ -57,4 +57,26 @@ var Shareabouts = Shareabouts || {};
   });
 
 
+  Handlebars.registerHelper('count', function(a, groupBy, val, options) {
+    if (groupBy) {
+      return _.countBy(a, groupBy)[val] || 0;
+    }
+
+    return a.length;
+  });
+
+  Handlebars.registerHelper('get_first_type_with_comments', function(options) {
+    var order = ['comment-type-correction', 'comment-type-issue', 'comment-type-idea'],
+        counts = _.countBy(this.responses, 'comment-type'),
+        i, first;
+
+    for (i=0; i<order.length; i++) {
+      if (counts[order[i]] > 0) {
+        return order[i];
+      }
+    }
+
+    return order[0];
+  });
+
 }(Shareabouts));
