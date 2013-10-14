@@ -42,6 +42,10 @@
         {{ Name }}
     {{/ if_equal }}
     
+    {{# if_equal location_type 'CORRIDOR'}} 
+        {{ Name }}
+    {{/ if_equal }}
+    
     {{# if_equal location_type 'NONE'}} 
         {{ Address }}
     {{/ if_equal }}

@@ -279,7 +279,7 @@ place_types:
           fillOpacity: 0.5
           opacity: 1
   ROAD:
-    label: _(Pier)
+    label: _(Road)
     rules:
       - condition: '"{{location_type}}" === "ROAD"'
         style:
