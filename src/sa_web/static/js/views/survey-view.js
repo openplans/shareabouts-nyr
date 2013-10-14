@@ -55,7 +55,9 @@ var Shareabouts = Shareabouts || {};
 
     onSubmit: function(evt) {
       evt.preventDefault();
-      var $form = this.$('form'),
+      var self = this,
+          submissionType = this.collection.options.submissionType,
+          $form = this.$('form'),
           $button = this.$('[name="commit"]'),
           attrs = S.Util.getAttrs($form);
 
@@ -67,6 +69,17 @@ var Shareabouts = Shareabouts || {};
       this.collection.create(attrs, {
         wait: true,
         success: function() {
+          var submissionSets = self.collection.options.placeModel.get('submission_sets');
+
+          if (!submissionSets[submissionType]) {
+            // Not adding the url since it is not needed for rendering anything
+            submissionSets[submissionType] = {};
+          }
+          submissionSets[submissionType].length = self.collection.size();
+
+          self.collection.options.placeModel.set('submission_sets', submissionSets);
+          self.collection.options.placeModel.trigger('change change:submission_sets');
+
           // Clear the form
           $form.get(0).reset();
         },
