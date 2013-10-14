@@ -66,14 +66,7 @@ var Shareabouts = Shareabouts || {};
   });
 
   Handlebars.registerHelper('get_most_recent_type', function(options) {
-    var order = ['comment-type-correction', 'comment-type-issue', 'comment-type-idea'],
-        sorted = _.sortBy(this.responses, 'created_datetime');
-
-    if (sorted.length) {
-      return _.last(sorted)['comment-type'];
-    }
-
-    return order[0];
+    return Shareabouts.getNewestCommentType(this.responses, this.place.location_type === 'general');
   });
 
 }(Shareabouts));

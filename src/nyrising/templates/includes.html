@@ -61,26 +61,59 @@
       model.trigger('focus');
 
       model.submissionSets.comments.on('reset', function(collection) {
-        var sorted = _.sortBy(model.submissionSets.comments.toJSON(), 'created_datetime');
-            newest = _.last(sorted);
-
-        if (newest) {
-          if (newest['comment-type'] === 'comment-type-issue') {
-            showIssues();
-          } else if (newest['comment-type'] === 'comment-type-idea') {
-            showIdeas();
-          }
-        } else {
-          showIssues();
-        }
+        Shareabouts.initializeComments(model.submissionSets.comments, $('#content'));
       });
     } else {
       this.options.router.navigate('/');
     }
   };
 
-  function showCorrections() {
-    var $el = $('#content .survey-container'),
+  // initializeComments
+  // ------------------
+  // Determine which comment category has the most recent submission and
+  // activate the corresponding tab.
+  Shareabouts.initializeComments = function(commentCollection, $el) {
+    var newestType = Shareabouts.getNewestCommentType(
+      commentCollection.toJSON(),
+      commentCollection.options.placeModel.get('location_type') === 'general'
+    );
+
+    if (newestType === 'comment-type-issue') {
+      showIssues($el);
+    } else if (newestType === 'comment-type-idea') {
+      showIdeas($el);
+    } else if (newestType === 'comment-type-correction') {
+      showCorrections($el);
+    }
+  }
+
+  // getNewestCommentType
+  // --------------------
+  // Determine which comment category has the most recent submission.
+  Shareabouts.getNewestCommentType = function(data, isGeneral) {
+    var order = ['comment-type-correction', 'comment-type-issue', 'comment-type-idea'],
+        sorted = _.sortBy(data, 'created_datetime');
+
+    if (sorted.length) {
+      return _.last(sorted)['comment-type'];
+    }
+
+    if (isGeneral) {
+      return order[1];
+    } else {
+      return order[0];
+    }
+  };
+
+  var originalRender = Shareabouts.SurveyView.prototype.render;
+  Shareabouts.SurveyView.prototype.render = function() {
+    var view = originalRender.call(this);
+    Shareabouts.initializeComments(this.collection, this.$el);
+    return view;
+  }
+
+  function showCorrections($parent) {
+    var $el = $parent.find('.survey-container'),
         // This is used in the CSS - be aware!
         val = 'comment-type-correction';
 
@@ -92,8 +125,8 @@
     $el.find('[type="submit"]').val('Suggest Correction');
   };
 
-  function showIssues() {
-    var $el = $('#content .survey-container'),
+  function showIssues($parent) {
+    var $el = $parent.find('.survey-container'),
         // This is used in the CSS - be aware!
         val = 'comment-type-issue';
 
@@ -102,11 +135,11 @@
 
     $el.removeClass('comment-type-idea comment-type-correction').addClass(val);
     $el.find('#survey-comment-type').val(val);
-    $el.find('[type="submit"]').val('Report Issue');
+    $el.find('[type="submit"]').val('Report Need');
   }
 
-  function showIdeas() {
-    var $el = $('#content .survey-container'),
+  function showIdeas($parent) {
+    var $el = $parent.find('.survey-container'),
         // This is used in the CSS - be aware!
         val = 'comment-type-idea';
 
@@ -121,15 +154,15 @@
   $(function() {
     function handleCorrectionClick(evt) {
       evt.preventDefault();
-      showCorrections();
+      showCorrections($('#content'));
     }
     function handleIssueClick(evt) {
       evt.preventDefault();
-      showIssues();
+      showIssues($('#content'));
     }
     function handleIdeaClick(evt) {
       evt.preventDefault();
-      showIdeas();
+      showIdeas($('#content'));
     }
 
     // Hijack the general comments link in the legend

@@ -30,14 +30,15 @@ var Shareabouts = Shareabouts || {};
           submitter_name: model.get('submitter_name') || self.options.surveyConfig.anonymous_name,
           pretty_created_datetime: S.Util.getPrettyDateTime(model.get('created_datetime'),
             self.options.surveyConfig.pretty_datetime_format),
-          items: items
+          items: items,
         }));
       });
 
       this.$el.html(Handlebars.templates['place-detail-survey']({
         responses: responses,
         has_single_response: (responses.length === 1),
-        survey_config: this.options.surveyConfig
+        survey_config: this.options.surveyConfig,
+        place: this.collection.options.placeModel.toJSON()
       }));
 
       return this;
