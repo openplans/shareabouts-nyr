@@ -1,0 +1,465 @@
+# Settings for the app
+app:
+  # HTML Title
+  title: NY Rising
+  # Header name
+  name: Red Hook
+  # Meta description that will show up in Google search results
+  meta_description: _(NY Rising)
+
+# Settings for map and layer configs
+map:
+  geolocation_enabled: true
+  geolocation_onload: false
+  options:
+    center:
+      lat: 40.67621
+      lng: -74.01450
+    zoom: 17
+    minZoom: 16
+    maxZoom: 18
+  layers:
+    - url: http://{s}.tiles.mapbox.com/v3/openplans.150-NYRising-RH-3/{z}/{x}/{y}.png
+      attribution: '&copy; OpenStreetMap contributors, CC-BY-SA. <a href="http://mapbox.com/about/maps" target="_blank">Terms &amp; Feedback</a>'
+    - url: http://{s}.tiles.mapbox.com/v3/openplans.map-2eefy58d/{z}/{x}/{y}.png
+
+# The keys show up in the dropdown list when you are adding a new place
+# The values map the place type to map icons (defined below).
+place_types:
+  A:
+    label: _(Economic)
+    rules:
+      - condition: '"{{location_type}}" === "A" && {{submission_sets.comments.length}} > 0'
+        style:
+          color: '#800004'
+          weight: 2.5
+          opacity: 0.9
+          fillOpacity: 0
+          dashArray: '1 4'
+        focus_style:
+          color: '#800004'
+          weight: 3
+          fillColor: '#800004'
+          fillOpacity: 0.5
+          opacity: 1
+          dashArray: null
+      - condition: '"{{location_type}}" === "A"'
+        style:
+          color: '#800004'
+          weight: 0
+          fillOpacity: 0
+        focus_style:
+          color: '#800004'
+          weight: 3
+          fillColor: '#800004'
+          fillOpacity: 0.5
+          opacity: 1
+  B:
+    label: _(Health and Social Services)
+    rules:
+      - condition: '"{{location_type}}" === "B" && {{submission_sets.comments.length}} > 0'
+        style:
+          color: '#003e6e'
+          weight: 2
+          opacity: 0.9
+          fillOpacity: 0
+          dashArray: '1 4'
+        focus_style:
+          color: '#003e6e'
+          weight: 3
+          fillColor: '#003e6e'
+          fillOpacity: 0.5
+          opacity: 1
+          dashArray: null
+      - condition: '"{{location_type}}" === "B"'
+        style:
+          color: '#003e6e'
+          weight: 0
+          fillOpacity: 0
+        focus_style:
+          color: '#003e6e'
+          weight: 3
+          fillColor: '#003e6e'
+          fillOpacity: 0.5
+          opacity: 1
+  C:
+    label: _(Housing)
+    rules:
+      - condition: '"{{location_type}}" === "C" && {{submission_sets.comments.length}} > 0'
+        style:
+          color: '#565900'
+          weight: 2
+          opacity: 0.9
+          fillOpacity: 0
+          dashArray: '1 4'
+        focus_style:
+          color: '#565900'
+          weight: 3
+          fillColor: '#565900'
+          fillOpacity: 0.5
+          opacity: 1
+          dashArray: null
+      - condition: '"{{location_type}}" === "C"'
+        style:
+          color: '#565900'
+          weight: 0
+          fillOpacity: 0
+        focus_style:
+          color: '#565900'
+          weight: 3
+          fillColor: '#565900'
+          fillOpacity: 0.5
+          opacity: 1
+  D:
+    label: _(Infrastructure Systems)
+    rules:
+      - condition: '"{{location_type}}" === "D" && {{submission_sets.comments.length}} > 0'
+        style:
+          color: '#6c0080'
+          weight: 2
+          opacity: 0.9
+          fillOpacity: 0
+          dashArray: '1 4'
+        focus_style:
+          color: '#6c0080'
+          weight: 3
+          fillColor: '#6c0080'
+          fillOpacity: 0.5
+          opacity: 1
+          dashArray: null
+      - condition: '"{{location_type}}" === "D"'
+        style:
+          color: '#6c0080'
+          weight: 0
+          fillOpacity: 0
+        focus_style:
+          color: '#6c0080'
+          weight: 3
+          fillColor: '#6c0080'
+          fillOpacity: 0.5
+          opacity: 1
+  E:
+    label: _(Natural and Cultural)
+    rules:
+      - condition: '"{{location_type}}" === "E" && {{submission_sets.comments.length}} > 0'
+        style:
+          color: '#026600'
+          weight: 2
+          opacity: 0.9
+          fillOpacity: 0
+          dashArray: '1 4'
+        focus_style:
+          color: '#026600'
+          weight: 3
+          fillColor: '#026600'
+          fillOpacity: 0.5
+          opacity: 1
+          dashArray: null
+      - condition: '"{{location_type}}" === "E"'
+        style:
+          color: '#026600'
+          weight: 0
+          fillOpacity: 0
+        focus_style:
+          color: '#026600'
+          weight: 3
+          fillColor: '#026600'
+          fillOpacity: 0.5
+          opacity: 1
+  NONE:
+    label: _(Vacant)
+    rules:
+      - condition: '"{{location_type}}" === "NONE" && {{submission_sets.comments.length}} > 0'
+        style:
+          color: '#555'
+          weight: 2
+          opacity: 0.9
+          fillOpacity: 0
+          dashArray: '1 4'
+        focus_style:
+          color: '#555'
+          weight: 3
+          fillColor: '#555'
+          fillOpacity: 0.5
+          opacity: 1
+          dashArray: null
+      - condition: '"{{location_type}}" === "NONE"'
+        style:
+          color: '#555'
+          weight: 0
+          fillOpacity: 0
+        focus_style:
+          color: '#555'
+          weight: 3
+          fillColor: '#555'
+          fillOpacity: 0.5
+          opacity: 1
+  CORRIDOR:
+    label: _(Corridor)
+    rules:
+      - condition: '"{{location_type}}" === "CORRIDOR" && {{submission_sets.comments.length}} > 0'
+        style:
+          color: '#555'
+          weight: 2
+          opacity: 0.9
+          fillOpacity: 0
+          dashArray: '1 4'
+        focus_style:
+          color: '#555'
+          weight: 3
+          fillColor: '#555'
+          fillOpacity: 0.5
+          opacity: 1
+          dashArray: null
+      - condition: '"{{location_type}}" === "CORRIDOR"'
+        style:
+          color: '#555'
+          weight: 0
+          fillOpacity: 0
+        focus_style:
+          color: '#555'
+          weight: 3
+          fillColor: '#555'
+          fillOpacity: 0.5
+          opacity: 1
+  GREENWAY:
+    label: _(Greenway)
+    rules:
+      - condition: '"{{location_type}}" === "GREENWAY" && {{submission_sets.comments.length}} > 0'
+        style:
+          color: '#555'
+          weight: 2
+          opacity: 0.9
+          fillColor: '#ae8'
+          fillOpacity: 1
+          dashArray: '1 4'
+        focus_style:
+          color: '#555'
+          weight: 3
+          fillColor: '#555'
+          fillOpacity: 0.5
+          opacity: 1
+          dashArray: null
+      - condition: '"{{location_type}}" === "GREENWAY"'
+        style:
+          color: '#555'
+          weight: 0
+          fillColor: '#ae8'
+          fillOpacity: 0.5
+        focus_style:
+          color: '#555'
+          weight: 3
+          fillColor: '#555'
+          fillOpacity: 0.5
+          opacity: 1
+  PIER:
+    label: _(Pier)
+    rules:
+      - condition: '"{{location_type}}" === "PIER" && {{submission_sets.comments.length}} > 0'
+        style:
+          color: '#555'
+          weight: 2
+          opacity: 0.9
+          fillOpacity: 0
+          dashArray: '1 4'
+        focus_style:
+          color: '#555'
+          weight: 3
+          fillColor: '#555'
+          fillOpacity: 0.5
+          opacity: 1
+          dashArray: null
+      - condition: '"{{location_type}}" === "PIER"'
+        style:
+          color: '#555'
+          weight: 0
+          fillOpacity: 0
+        focus_style:
+          color: '#555'
+          weight: 3
+          fillColor: '#555'
+          fillOpacity: 0.5
+          opacity: 1
+  ROAD:
+    label: _(Road)
+    rules:
+      - condition: '"{{location_type}}" === "ROAD" && {{submission_sets.comments.length}} > 0'
+        style:
+          color: '#555'
+          weight: 2
+          opacity: 0.9
+          fillOpacity: 0
+          dashArray: '1 4'
+        focus_style:
+          color: '#000'
+          weight: 4
+          fillOpacity: 0.1
+          opacity: 1
+      - condition: '"{{location_type}}" === "ROAD"'
+        style:
+          color: '#fff'
+          weight: 1
+          fillOpacity: 0
+        focus_style:
+          color: '#000'
+          weight: 4
+          fillOpacity: 0.1
+          opacity: 1
+  general:
+    label: _(General)
+    rules:
+      - condition:  '"{{location_type}}" === "general"'
+        style:
+          fillOpacity: 0
+          stroke: false
+          radius: 0
+
+activity:
+  # Optional. Activity is supported by default. Set to false to disable.
+  enabled: true
+  # How often to refresh the activity list, in milliseconds.
+  interval: 30000
+
+place:
+  adding_supported: false
+  add_button_label: _(Add a missing asset)
+  action_text: _(added)
+  title: _(Describe this location)
+  action_text: _(created)
+  anonymous_name: _(Someone)
+  submit_button_label: _(Submit)
+  items:
+    - prompt: _(Location Name)
+      type: text
+      name: Name
+      attrs:
+        - key: placeholder
+          value: _(Location Name)
+        - key: size
+          value: 30
+    - prompt: _(Asset type)
+      type: select
+      options:
+        - label: _(Economic asset)
+          value: Aadded
+        - label: _(  Health and Social Services)
+          value: Badded
+        - label: _(Housing)
+          value: Cadded
+        - label: _(Infrastructure Systems)
+          value: Dadded
+        - label: _(Natural and Cultural)
+          value: Eadded
+      name: location_type
+    - prompt: _(Describe the asset)
+      type: textarea
+      name: DESCRIPTIO
+      attrs:
+        - key: placeholder
+          value: _(Description...)
+    - prompt: _(Your Name)
+      type: text
+      name: submitter_name
+      attrs:
+        - key: placeholder
+          value: _(Name)
+        - key: size
+          value: 30
+    - prompt: _(Your email, will not be shown on the map)
+      type: text
+      name: private-email
+      attrs:
+        - key: placeholder
+          value: _(Email)
+        - key: size
+          value: 30
+    - prompt: _(Nearest intersection to your home, will not be shown on the map)
+      type: text
+      name: private-address
+      attrs:
+        - key: placeholder
+          value: _(Address)
+        - key: size
+          value: 30
+    - type: hidden
+      name: user-added
+      attrs:
+        - key: value
+          value: 1
+survey:
+  submission_type: comments
+
+  # Response config
+  show_responses: true
+  response_name: _(comment)
+  response_plural_name: _(comments)
+  action_text: _(commented on)
+  anonymous_name: _(Someone)
+
+  # Survey form config
+  title: _(Leave a Comment)
+  form_link_text: _(Leave a Comment)
+  submit_btn_text: _(Comment)
+  items:
+    - type: hidden
+      name: comment-type
+      attrs:
+        - key: value
+          value: comment-type-correction
+    - prompt: _(Comment)
+      label: _(Comment)
+      type: textarea
+      name: comment
+
+    - prompt: _(Economic)
+      type: checkbox
+      name: retail
+      attrs:
+        - key: value
+          value: _(Economic)
+    - prompt: _(Housing)
+      type: checkbox
+      name: housing
+      attrs:
+        - key: value
+          value: _(Housing)
+    - prompt: _(Natural and Cultural)
+      type: checkbox
+      name: naturalcultural
+      attrs:
+        - key: value
+          value: _(Natural and Cultural)
+    - prompt: _(Health and Social Services)
+      type: checkbox
+      name: health
+      attrs:
+        - key: value
+          value: _(Health and Social Services)
+    - prompt: _(Infrastructure)
+      type: checkbox
+      name: emergency
+      attrs:
+        - key: value
+          value: _(Infrastructure)
+    - prompt: _(Vulnerable Populations)
+      type: checkbox
+      name: vulnerable
+      attrs:
+        - key: value
+          value: _(Vulnerable Populations)
+
+    - prompt: _(Your Name)
+      type: text
+      name: submitter_name
+
+support:
+  submission_type: support
+  submit_btn_text: _(Support This!)
+  action_text: supported
+  anonymous_name: _(Someone)
+
+pages:
+  - title: _(What to do)
+    slug: about
+    name: overview
+    start_page: true
