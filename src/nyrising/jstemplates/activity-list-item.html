@@ -26,11 +26,43 @@
 
     {{ action }}
 
-    {{#if place.displaynam }}
-      {{ place.displaynam }}
-    {{ else }}
-        a{{#if place.type_starts_with_vowel }}n{{/if }} <span class="place-type">"{{ place.place_type_label }}" location</span>
-    {{/if }}
+    {{# if_equal place.location_type 'A'}} 
+      {{ place.Name }}
+    {{/ if_equal }}
+    
+    {{# if_equal place.location_type 'B'}} 
+      {{ place.Address }}
+    {{/ if_equal }}
+    
+    {{# if_equal place.location_type 'C'}} 
+
+      {{# if_equal place.Socially_V 'Y'}} 
+          {{ place.Name }}  
+      {{ else }}
+          {{ place.Address }}
+      {{/ if_equal }}
+
+    {{/ if_equal }}
+    
+    {{# if_equal place.location_type 'D'}} 
+      {{ place.Name }}
+    {{/ if_equal }}
+    
+    {{# if_equal place.location_type 'E'}} 
+      {{ place.Name }}
+    {{/ if_equal }}
+    
+    {{# if_equal place.location_type 'VACANT'}} 
+      {{ place.Address }}
+    {{/ if_equal }}
+    
+    {{# if_equal place.location_type 'ROAD'}} 
+      a street location
+    {{/ if_equal }}
+    
+    {{# if_equal place.location_type 'GREENWAY'}} 
+      the Brooklyn Waterfront Greenway
+    {{/ if_equal }}
 
   {{/if_equal}}
 
