@@ -5,7 +5,7 @@ app:
   # Header name
   name: Rockaway East
   # Meta description that will show up in Google search results
-  meta_description: _(NY Rising)
+  meta_description: _(NY Rising - Rockaway East)
 
 # Settings for map and layer configs
 map:
@@ -22,67 +22,288 @@ map:
     - url: http://{s}.tiles.mapbox.com/v3/openplans.150-NYRising-RE/{z}/{x}/{y}.png
       attribution: '&copy; OpenStreetMap contributors, CC-BY-SA. <a href="http://mapbox.com/about/maps" target="_blank">Terms &amp; Feedback</a>'
 
+# The keys show up in the dropdown list when you are adding a new place
+# The values map the place type to map icons (defined below).
 place_types:
   A:
     label: _(Economic)
     rules:
+      - condition: '"{{location_type}}" === "A" && {{submission_sets.comments.length}} > 0'
+        style:
+          color: '#800004'
+          weight: 2.5
+          opacity: 0.9
+          fillOpacity: 0
+          dashArray: '1 4'
+        focus_style:
+          color: '#800004'
+          weight: 3
+          fillColor: '#800004'
+          fillOpacity: 0.5
+          opacity: 1
+          dashArray: null
       - condition: '"{{location_type}}" === "A"'
         style:
-          color: '#FF6F75'
-          weight: 1
-          fillOpacity: 0.5
+          color: '#800004'
+          weight: 0
+          fillOpacity: 0
         focus_style:
-          color: '#FF6F75'
-          weight: 1
-          fillOpacity: 0.9
+          color: '#800004'
+          weight: 3
+          fillColor: '#800004'
+          fillOpacity: 0.5
+          opacity: 1
   B:
     label: _(Health and Social Services)
     rules:
+      - condition: '"{{location_type}}" === "B" && {{submission_sets.comments.length}} > 0'
+        style:
+          color: '#003e6e'
+          weight: 2
+          opacity: 0.9
+          fillOpacity: 0
+          dashArray: '1 4'
+        focus_style:
+          color: '#003e6e'
+          weight: 3
+          fillColor: '#003e6e'
+          fillOpacity: 0.5
+          opacity: 1
+          dashArray: null
       - condition: '"{{location_type}}" === "B"'
         style:
-          color: '#0091FF'
-          weight: 1
-          fillOpacity: 0.5
+          color: '#003e6e'
+          weight: 0
+          fillOpacity: 0
         focus_style:
-          color: '#0091FF'
-          weight: 1
-          fillOpacity: 0.9
+          color: '#003e6e'
+          weight: 3
+          fillColor: '#003e6e'
+          fillOpacity: 0.5
+          opacity: 1
   C:
     label: _(Housing)
     rules:
+      - condition: '"{{location_type}}" === "C" && {{submission_sets.comments.length}} > 0'
+        style:
+          color: '#565900'
+          weight: 2
+          opacity: 0.9
+          fillOpacity: 0
+          dashArray: '1 4'
+        focus_style:
+          color: '#565900'
+          weight: 3
+          fillColor: '#565900'
+          fillOpacity: 0.5
+          opacity: 1
+          dashArray: null
       - condition: '"{{location_type}}" === "C"'
         style:
-          color: '#F9FF6A'
-          weight: 1
-          fillOpacity: 0.5
+          color: '#565900'
+          weight: 0
+          fillOpacity: 0
         focus_style:
-          color: '#F9FF6A'
-          weight: 1
-          fillOpacity: 0.9
+          color: '#565900'
+          weight: 3
+          fillColor: '#565900'
+          fillOpacity: 0.5
+          opacity: 1
   D:
     label: _(Infrastructure Systems)
     rules:
+      - condition: '"{{location_type}}" === "D" && {{submission_sets.comments.length}} > 0'
+        style:
+          color: '#6c0080'
+          weight: 2
+          opacity: 0.9
+          fillOpacity: 0
+          dashArray: '1 4'
+        focus_style:
+          color: '#6c0080'
+          weight: 3
+          fillColor: '#6c0080'
+          fillOpacity: 0.5
+          opacity: 1
+          dashArray: null
       - condition: '"{{location_type}}" === "D"'
         style:
-          color: '#CD95D7'
-          weight: 1
-          fillOpacity: 0.5
+          color: '#6c0080'
+          weight: 0
+          fillOpacity: 0
         focus_style:
-          color: '#CD95D7'
-          weight: 1
-          fillOpacity: 0.9
+          color: '#6c0080'
+          weight: 3
+          fillColor: '#6c0080'
+          fillOpacity: 0.5
+          opacity: 1
   E:
     label: _(Natural and Cultural)
     rules:
+      - condition: '"{{location_type}}" === "E" && {{submission_sets.comments.length}} > 0'
+        style:
+          color: '#026600'
+          weight: 2
+          opacity: 0.9
+          fillOpacity: 0
+          dashArray: '1 4'
+        focus_style:
+          color: '#026600'
+          weight: 3
+          fillColor: '#026600'
+          fillOpacity: 0.5
+          opacity: 1
+          dashArray: null
       - condition: '"{{location_type}}" === "E"'
         style:
-          color: '#67D666'
-          weight: 1
+          color: '#026600'
+          weight: 0
+          fillOpacity: 0
+        focus_style:
+          color: '#026600'
+          weight: 3
+          fillColor: '#026600'
+          fillOpacity: 0.5
+          opacity: 1
+  NONE:
+    label: _(Vacant)
+    rules:
+      - condition: '"{{location_type}}" === "NONE" && {{submission_sets.comments.length}} > 0'
+        style:
+          color: '#555'
+          weight: 2
+          opacity: 0.9
+          fillOpacity: 0
+          dashArray: '1 4'
+        focus_style:
+          color: '#555'
+          weight: 3
+          fillColor: '#555'
+          fillOpacity: 0.5
+          opacity: 1
+          dashArray: null
+      - condition: '"{{location_type}}" === "NONE"'
+        style:
+          color: '#555'
+          weight: 0
+          fillOpacity: 0
+        focus_style:
+          color: '#555'
+          weight: 3
+          fillColor: '#555'
+          fillOpacity: 0.5
+          opacity: 1
+  CORRIDOR:
+    label: _(Corridor)
+    rules:
+      - condition: '"{{location_type}}" === "CORRIDOR" && {{submission_sets.comments.length}} > 0'
+        style:
+          color: '#555'
+          weight: 2
+          opacity: 0.9
+          fillOpacity: 0
+          dashArray: '1 4'
+        focus_style:
+          color: '#555'
+          weight: 3
+          fillColor: '#555'
+          fillOpacity: 0.5
+          opacity: 1
+          dashArray: null
+      - condition: '"{{location_type}}" === "CORRIDOR"'
+        style:
+          color: '#555'
+          weight: 0
+          fillOpacity: 0
+        focus_style:
+          color: '#555'
+          weight: 3
+          fillColor: '#555'
+          fillOpacity: 0.5
+          opacity: 1
+  GREENWAY:
+    label: _(Greenway)
+    rules:
+      - condition: '"{{location_type}}" === "GREENWAY" && {{submission_sets.comments.length}} > 0'
+        style:
+          color: '#555'
+          weight: 2
+          opacity: 0.9
+          fillColor: '#ae8'
+          fillOpacity: 1
+          dashArray: '1 4'
+        focus_style:
+          color: '#555'
+          weight: 3
+          fillColor: '#555'
+          fillOpacity: 0.5
+          opacity: 1
+          dashArray: null
+      - condition: '"{{location_type}}" === "GREENWAY"'
+        style:
+          color: '#555'
+          weight: 0
+          fillColor: '#ae8'
           fillOpacity: 0.5
         focus_style:
-          color: '#67D666'
+          color: '#555'
+          weight: 3
+          fillColor: '#555'
+          fillOpacity: 0.5
+          opacity: 1
+  PIER:
+    label: _(Pier)
+    rules:
+      - condition: '"{{location_type}}" === "PIER" && {{submission_sets.comments.length}} > 0'
+        style:
+          color: '#555'
+          weight: 2
+          opacity: 0.9
+          fillOpacity: 0
+          dashArray: '1 4'
+        focus_style:
+          color: '#555'
+          weight: 3
+          fillColor: '#555'
+          fillOpacity: 0.5
+          opacity: 1
+          dashArray: null
+      - condition: '"{{location_type}}" === "PIER"'
+        style:
+          color: '#555'
+          weight: 0
+          fillOpacity: 0
+        focus_style:
+          color: '#555'
+          weight: 3
+          fillColor: '#555'
+          fillOpacity: 0.5
+          opacity: 1
+  ROAD:
+    label: _(Road)
+    rules:
+      - condition: '"{{location_type}}" === "ROAD" && {{submission_sets.comments.length}} > 0'
+        style:
+          color: '#555'
+          weight: 2
+          opacity: 0.9
+          fillOpacity: 0
+          dashArray: '1 4'
+        focus_style:
+          color: '#000'
+          weight: 4
+          fillOpacity: 0.1
+          opacity: 1
+      - condition: '"{{location_type}}" === "ROAD"'
+        style:
+          color: '#fff'
           weight: 1
-          fillOpacity: 0.9
+          fillOpacity: 0
+        focus_style:
+          color: '#000'
+          weight: 4
+          fillOpacity: 0.1
+          opacity: 1
   general:
     label: _(General)
     rules:
@@ -91,7 +312,6 @@ place_types:
           fillOpacity: 0
           stroke: false
           radius: 0
-
 
 activity:
   # Optional. Activity is supported by default. Set to false to disable.
@@ -178,7 +398,7 @@ survey:
   # Survey form config
   title: _(Leave a Comment)
   form_link_text: _(Leave a Comment)
-  submit_btn_text: _(Suggest Correction)
+  submit_btn_text: _(Comment)
   items:
     - type: hidden
       name: comment-type
@@ -189,6 +409,44 @@ survey:
       label: _(Comment)
       type: textarea
       name: comment
+
+    - prompt: _(Economic)
+      type: checkbox
+      name: retail
+      attrs:
+        - key: value
+          value: _(Economic)
+    - prompt: _(Housing)
+      type: checkbox
+      name: housing
+      attrs:
+        - key: value
+          value: _(Housing)
+    - prompt: _(Natural and Cultural)
+      type: checkbox
+      name: naturalcultural
+      attrs:
+        - key: value
+          value: _(Natural and Cultural)
+    - prompt: _(Health and Social Services)
+      type: checkbox
+      name: health
+      attrs:
+        - key: value
+          value: _(Health and Social Services)
+    - prompt: _(Infrastructure)
+      type: checkbox
+      name: emergency
+      attrs:
+        - key: value
+          value: _(Infrastructure)
+    - prompt: _(Vulnerable Populations)
+      type: checkbox
+      name: vulnerable
+      attrs:
+        - key: value
+          value: _(Vulnerable Populations)
+
     - prompt: _(Your Name)
       type: text
       name: submitter_name
@@ -200,7 +458,7 @@ support:
   anonymous_name: _(Someone)
 
 pages:
-  - title: _(About)
+  - title: _(What to do)
     slug: about
     name: overview
     start_page: true
