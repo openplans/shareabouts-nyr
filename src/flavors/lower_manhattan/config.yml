@@ -3,9 +3,9 @@ app:
   # HTML Title
   title: NY Rising
   # Header name
-  name: Red Hook
+  name: Lower Manhattan
   # Meta description that will show up in Google search results
-  meta_description: _(NY Rising)
+  meta_description: _(NY Rising - Lower Manhattan)
 
 # Settings for map and layer configs
 map:
@@ -13,13 +13,13 @@ map:
   geolocation_onload: false
   options:
     center:
-      lat: 40.67621
-      lng: -74.01450
-    zoom: 17
+      lat: 40.7100
+      lng: -74.0109
+    zoom: 16
     minZoom: 16
     maxZoom: 18
   layers:
-    - url: http://{s}.tiles.mapbox.com/v3/openplans.150-NYRising-RH-3/{z}/{x}/{y}.png
+    - url: http://{s}.tiles.mapbox.com/v3/openplans.150-NYRising-LM/{z}/{x}/{y}.png
       attribution: '&copy; OpenStreetMap contributors, CC-BY-SA. <a href="http://mapbox.com/about/maps" target="_blank">Terms &amp; Feedback</a>'
     - url: http://{s}.tiles.mapbox.com/v3/openplans.map-2eefy58d/{z}/{x}/{y}.png
 
