@@ -512,7 +512,12 @@ ul.recent-points {
   padding: 0.75em 1em 1em;
   font-size: 0.85em;
 }
-
+.legend-help-text {
+  font-size: 1em;
+  font-weight: normal;
+  line-height: 1.5;
+  margin-bottom: 0.5em;
+}
 .help-text.help-text-visible {
   display: block;
 }
