@@ -104,6 +104,12 @@
       return order[0];
     }
   };
+  
+  // toggle the help text
+  $('body').on('click', 'a.help-btn', function(evt) {
+    evt.preventDefault();
+    $(this).siblings('.help-text').toggleClass('help-text-visible');
+  });
 
   var originalRender = Shareabouts.SurveyView.prototype.render;
   Shareabouts.SurveyView.prototype.render = function() {

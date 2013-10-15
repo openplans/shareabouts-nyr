@@ -283,6 +283,18 @@ place_types:
   ROAD:
     label: _(Road)
     rules:
+      - condition: '"{{location_type}}" === "ROAD" && {{submission_sets.comments.length}} > 0'
+        style:
+          color: '#555'
+          weight: 2
+          opacity: 0.9
+          fillOpacity: 0
+          dashArray: '1 4'
+        focus_style:
+          color: '#000'
+          weight: 4
+          fillOpacity: 0.1
+          opacity: 1
       - condition: '"{{location_type}}" === "ROAD"'
         style:
           color: '#fff'
@@ -292,7 +304,7 @@ place_types:
           color: '#000'
           weight: 4
           fillOpacity: 0.1
-          opacity: 1  
+          opacity: 1
   general:
     label: _(General)
     rules:
