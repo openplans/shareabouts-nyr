@@ -1,7 +1,7 @@
 <!-- only showing comments, not creating new places -->
-  {{#if is_place }} 
+  {{#if is_place }}
       <!-- do nothing -->
-      {{else}}  
+      {{else}}
 <li class="activity-item clearfix">
   {{# if_equal place.location_type 'general' }}
   <a href="/comments">
@@ -19,15 +19,22 @@
       <img src="/static/css/images/user-50.png" class="avatar" /> {{ target.submitter_name }}
     {{/if}}
     </strong>
-    
+
+  {{#if_equal place.location_type 'general'}}
+    left a neighborhood comment
+  {{else}}
+
     {{ action }}
-        
-  {{#if place.displaynam }} 
-    {{ place.displaynam }}
-  {{ else }}
-    a{{#if place.type_starts_with_vowel }}n{{/if }} <span class="place-type">"{{ place.place_type_label }}" location</span>
-  {{/if }} 
- 
+
+    {{#if place.displaynam }}
+      {{ place.displaynam }}
+    {{ else }}
+        a{{#if place.type_starts_with_vowel }}n{{/if }} <span class="place-type">"{{ place.place_type_label }}" location</span>
+    {{/if }}
+
+  {{/if_equal}}
+
+
   {{/_}}</a>
 </li>
  {{/if }}
