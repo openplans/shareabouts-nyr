@@ -92,8 +92,6 @@
 
     if (newestType === 'comment-type-issue') {
       showIssues($el);
-    } else if (newestType === 'comment-type-idea') {
-      showIdeas($el);
     } else if (newestType === 'comment-type-correction') {
       showCorrections($el);
     }
@@ -103,7 +101,7 @@
   // --------------------
   // Determine which comment category has the most recent submission.
   Shareabouts.getNewestCommentType = function(data, isGeneral) {
-    var order = ['comment-type-correction', 'comment-type-issue', 'comment-type-idea'],
+    var order = ['comment-type-correction', 'comment-type-issue'],
         sorted = _.sortBy(data, 'created_datetime');
 
     if (sorted.length) {
@@ -138,7 +136,7 @@
     // Reset the form
     $el.find('form').get(0).reset();
 
-    $el.removeClass('comment-type-idea comment-type-issue').addClass(val);
+    $el.removeClass('comment-type-issue').addClass(val);
     $el.find('#survey-comment-type').val(val);
     $el.find('[type="submit"]').val('Suggest Correction');
   };
@@ -151,22 +149,9 @@
     // Reset the form
     $el.find('form').get(0).reset();
 
-    $el.removeClass('comment-type-idea comment-type-correction').addClass(val);
+    $el.removeClass('comment-type-correction').addClass(val);
     $el.find('#survey-comment-type').val(val);
     $el.find('[type="submit"]').val('Report Need');
-  }
-
-  function showIdeas($parent) {
-    var $el = $parent.find('.survey-container'),
-        // This is used in the CSS - be aware!
-        val = 'comment-type-idea';
-
-    // Reset the form
-    $el.find('form').get(0).reset();
-
-    $el.removeClass('comment-type-issue comment-type-correction').addClass(val);
-    $el.find('#survey-comment-type').val(val);
-    $el.find('[type="submit"]').val('Share Idea');
   }
 
   $(function() {
@@ -178,10 +163,6 @@
       evt.preventDefault();
       showIssues($('#content'));
     }
-    function handleIdeaClick(evt) {
-      evt.preventDefault();
-      showIdeas($('#content'));
-    }
 
     // Hijack the general comments link in the legend
     $('body').on('click', '.comments-link', function(evt) {
@@ -191,7 +172,6 @@
 
     $('#content').on('click', '.corrections-link', handleCorrectionClick);
     $('#content').on('click', '.issues-link', handleIssueClick);
-    $('#content').on('click', '.ideas-link', handleIdeaClick);
   });
 
   $(S).on('panelshow', function(evt, app, path) {
