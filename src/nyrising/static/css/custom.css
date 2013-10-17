@@ -214,17 +214,6 @@ a.reply-link:hover {
   display: none;
 }
 /* ...unless we're showing issues OR we're on the general comments page*/
-.show-ideas .survey-field-retail,
-.show-ideas .survey-field-housing,
-.show-ideas .survey-field-health,
-.show-ideas .survey-field-emergency,
-.show-ideas .survey-field-naturalcultural,
-.show-ideas .survey-field-transportation,
-.show-ideas .survey-field-utilities,
-.show-ideas .survey-field-coastal,
-.show-ideas .survey-field-flood,
-.show-ideas .survey-field-vulnerable,
-.show-ideas .survey-field-community,
 .general-comments .survey-field-retail,
 .general-comments .survey-field-housing,
 .general-comments .survey-field-health,
@@ -238,7 +227,6 @@ a.reply-link:hover {
 .general-comments .survey-field-community {
   display: block;
 }
-.show-ideas .survey-field-comment:after,
 .general-comments .survey-field-comment:after {
   content: "Optionally add tags...";
   color: #888;
@@ -249,7 +237,6 @@ a.reply-link:hover {
   margin-bottom: 1.2em;
 }
 
-/* display the tags in ideas... ONLY ideas */
 .response-item-retail,
 .response-item-housing,
 .response-item-health,
@@ -262,19 +249,6 @@ a.reply-link:hover {
 .response-item-vulnerable,
 .response-item-community {
   display: none;
-}
-.show-ideas .response-item-retail,
-.show-ideas .response-item-housing,
-.show-ideas .response-item-health,
-.show-ideas .response-item-emergency,
-.show-ideas .response-item-naturalcultural,
-.show-ideas .response-item-transportation,
-.show-ideas .response-item-utilities,
-.show-ideas .response-item-coastal,
-.show-ideas .response-item-flood,
-.show-ideas .response-item-vulnerable,
-.show-ideas .response-item-community {
-  display: block;
 }
 .response-value-retail,
 .response-value-housing,
@@ -455,17 +429,6 @@ ul.recent-points {
   display: none;
 }
 
-.comment-type-idea .ideas-prompt,
-.comment-type-idea .comment-type-idea-list-item {
-  display: block
-}
-
-.comment-type-idea .ideas-link {
-  background: #fff;
-  border-color: #aaa;
-  color: #444;
-}
-
 .comment-type-correction .corrections-prompt,
 .comment-type-correction .comment-type-correction-list-item {
   display: block;
@@ -488,9 +451,7 @@ ul.recent-points {
   color: #444;
 }
 
-
-.general-comments .corrections-list-item,
-.general-comments .corrections-prompt {
+.general-comments .comment-type-menu {
   display: none;
 }
 
