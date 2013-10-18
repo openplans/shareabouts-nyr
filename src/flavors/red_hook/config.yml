@@ -410,7 +410,8 @@ survey:
       label: _(Comment)
       type: textarea
       name: comment
-
+      attrs:
+        - key: required
     - prompt: _(Economic)
       type: checkbox
       name: retail
