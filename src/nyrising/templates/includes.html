@@ -205,7 +205,8 @@
   });
 
   $(S).on('panelshow', function(evt, app, path) {
-    var headerHtml;
+    var $el = $('#content'),
+        headerHtml;
 
     // Replace the header if this is the comments view
     if (path === 'comments') {
