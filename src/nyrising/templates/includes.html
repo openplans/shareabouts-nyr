@@ -92,8 +92,6 @@
 
     if (newestType === 'comment-type-issue') {
       showIssues($el);
-    } else if (newestType === 'comment-type-idea') {
-      showIdeas($el);
     } else if (newestType === 'comment-type-correction') {
       showCorrections($el);
     }
@@ -103,7 +101,7 @@
   // --------------------
   // Determine which comment category has the most recent submission.
   Shareabouts.getNewestCommentType = function(data, isGeneral) {
-    var order = ['comment-type-correction', 'comment-type-issue', 'comment-type-idea'],
+    var order = ['comment-type-correction', 'comment-type-issue'],
         sorted = _.sortBy(data, 'created_datetime');
 
     if (sorted.length) {
@@ -116,7 +114,7 @@
       return order[0];
     }
   };
-  
+
   // toggle the help text
   $('body').on('click', 'a.help-btn', function(evt) {
     evt.preventDefault();
@@ -130,74 +128,10 @@
     return view;
   }
 
-  function showCorrections($parent) {
-    var $el = $parent.find('.survey-container'),
-        // This is used in the CSS - be aware!
-        val = 'comment-type-correction';
-
-    // Reset the form
-    $el.find('form').get(0).reset();
-
-    $el.removeClass('comment-type-idea comment-type-issue').addClass(val);
-    $el.find('#survey-comment-type').val(val);
-    $el.find('[type="submit"]').val('Suggest Correction');
-  };
-
-  function showIssues($parent) {
-    var $el = $parent.find('.survey-container'),
-        // This is used in the CSS - be aware!
-        val = 'comment-type-issue';
-
-    // Reset the form
-    $el.find('form').get(0).reset();
-
-    $el.removeClass('comment-type-idea comment-type-correction').addClass(val);
-    $el.find('#survey-comment-type').val(val);
-    $el.find('[type="submit"]').val('Report Need');
-  }
-
-  function showIdeas($parent) {
-    var $el = $parent.find('.survey-container'),
-        // This is used in the CSS - be aware!
-        val = 'comment-type-idea';
-
-    // Reset the form
-    $el.find('form').get(0).reset();
-
-    $el.removeClass('comment-type-issue comment-type-correction').addClass(val);
-    $el.find('#survey-comment-type').val(val);
-    $el.find('[type="submit"]').val('Share Idea');
-  }
-
-  $(function() {
-    function handleCorrectionClick(evt) {
-      evt.preventDefault();
-      showCorrections($('#content'));
-    }
-    function handleIssueClick(evt) {
-      evt.preventDefault();
-      showIssues($('#content'));
-    }
-    function handleIdeaClick(evt) {
-      evt.preventDefault();
-      showIdeas($('#content'));
-    }
-
-    // Hijack the general comments link in the legend
-    $('body').on('click', '.comments-link', function(evt) {
-      evt.preventDefault();
-      window.app.navigate($(this).attr('href'), {trigger: true});
-    });
-
-    $('#content').on('click', '.corrections-link', handleCorrectionClick);
-    $('#content').on('click', '.issues-link', handleIssueClick);
-    $('#content').on('click', '.ideas-link', handleIdeaClick);
-  });
-
-  $(S).on('panelshow', function(evt, app, path) {
-
-    var $el = $('.place-detail'),
-        $asset = $el.find('.asset-class'),
+  var placeRender = Shareabouts.PlaceDetailView.prototype.render;
+  Shareabouts.PlaceDetailView.prototype.render = function() {
+    var view = placeRender.call(this),
+        $asset = view.$el.find('.asset-class'),
         asset = $asset.text(),
         assetMap = {
           'A': { 'name': 'Economic', 'cssclass': 'asset-economic'},
@@ -211,8 +145,67 @@
           'GREENWAY': { 'name': 'Greenway', 'cssclass': 'asset-infrastructure'},
           'PIER': { 'name': 'Pier', 'cssclass': 'asset-infrastructure'},
           'other': { 'name': ''}
-        },
-        // for comments
+        };
+
+    // Set asset type
+    if (assetMap[asset]) {
+      $asset.text(assetMap[asset].name).addClass(assetMap[asset].cssclass);
+    } else {
+      $asset.text(assetMap.other.name).addClass(assetMap.other.cssclass);
+    }
+
+    return view;
+  }
+
+
+  function showCorrections($parent) {
+    var $el = $parent.find('.survey-container'),
+        // This is used in the CSS - be aware!
+        val = 'comment-type-correction';
+
+    // Reset the form
+    $el.find('form').get(0).reset();
+
+    $el.removeClass('comment-type-issue').addClass(val);
+    $el.find('#survey-comment-type').val(val);
+    $el.find('[type="submit"]').val('Suggest Correction');
+  };
+
+  function showIssues($parent) {
+    var $el = $parent.find('.survey-container'),
+        // This is used in the CSS - be aware!
+        val = 'comment-type-issue';
+
+    // Reset the form
+    $el.find('form').get(0).reset();
+
+    $el.removeClass('comment-type-correction').addClass(val);
+    $el.find('#survey-comment-type').val(val);
+    $el.find('[type="submit"]').val('Report Need');
+  }
+
+  $(function() {
+    function handleCorrectionClick(evt) {
+      evt.preventDefault();
+      showCorrections($('#content'));
+    }
+    function handleIssueClick(evt) {
+      evt.preventDefault();
+      showIssues($('#content'));
+    }
+
+    // Hijack the general comments link in the legend
+    $('body').on('click', '.comments-link', function(evt) {
+      evt.preventDefault();
+      window.app.navigate($(this).attr('href'), {trigger: true});
+    });
+
+    $('#content').on('click', '.corrections-link', handleCorrectionClick);
+    $('#content').on('click', '.issues-link', handleIssueClick);
+  });
+
+  $(S).on('panelshow', function(evt, app, path) {
+    var $el = $('#content'),
         headerHtml;
 
     // Replace the header if this is the comments view
@@ -220,13 +213,6 @@
       headerHtml = Handlebars.templates['general-comments-header'];
       $el.find('.place-header').html(headerHtml);
       $el.addClass('general-comments');
-    }
-
-    // Set asset type
-    if (assetMap[asset]) {
-      $asset.text(assetMap[asset].name).addClass(assetMap[asset].cssclass);
-    } else {
-      $asset.text(assetMap.other.name).addClass(assetMap.other.cssclass);
     }
   });
 }(Shareabouts));
