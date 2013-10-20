@@ -1,0 +1,89 @@
+{{> place-detail-promotion-bar }}
+
+<header class="place-header clearfix">
+  <p><span class="asset-class">{{ASSET_CLAS}}</span></p>
+  <h1>
+    
+    {{# if_equal location_type 'A'}} 
+      {{ NAME }}
+    {{/ if_equal }}
+    
+    {{# if_equal location_type 'B'}} 
+      {{ NAME }}
+    {{/ if_equal }}
+    
+    {{# if_equal location_type 'C'}} 
+
+      {{# if_equal Socially_V 'Y'}} 
+          {{ NAME }}  
+      {{ else }}
+          {{ Address }}
+      {{/ if_equal }}
+
+    {{/ if_equal }}
+    
+    {{# if_equal location_type 'D'}} 
+      {{ NAME }}
+    {{/ if_equal }}
+    
+    {{# if_equal location_type 'E'}} 
+      {{ NAME }}
+    {{/ if_equal }}
+    
+    {{# if_equal location_type 'GREENWAY'}} 
+        {{ Overlay }}
+    {{/ if_equal }}
+    
+    {{# if_equal location_type 'PIER'}} 
+        {{ Overlay }}
+    {{/ if_equal }}
+    
+    {{# if_equal location_type 'ROAD'}} 
+        {{ NAME }}
+    {{/ if_equal }}
+    
+    {{# if_equal location_type 'CORRIDOR'}} 
+        {{ NAME }}
+    {{/ if_equal }}
+    
+    {{# if_equal location_type 'NONE'}} 
+        {{ Address }}
+    {{/ if_equal }}
+    
+
+</h1>
+</header>
+
+<section class="place-items">
+
+  {{# if_equal location_type 'C'}} 
+  
+  {{ else }}
+  
+    {{#if ASSET}}
+    <p>{{ASSET}}.</p>
+    {{/if }}
+    
+  {{/if_equal }}
+
+  {{#if notes}}
+  <p>{{ notes }}</p>
+  {{/if}}
+
+  {{#if Zone}}
+  <p>Risk zone: {{Zone}} 
+    <span class="help"><a class="help-btn" href="#">&#9432;</a><span class="help-text"> Risk zone defined by NYS DOS Risk Assessment Areas.<br/><br/><strong>Extreme</strong>: Areas currently at risk of frequent inundation and vulnerable to erosion and heavy wave action (in the FEMA V zone), subject to shallow coastal flooding, or likely to be inundated in the future due to sea level rise (assumption of 3 feet).<br/><br/>
+    <strong>High</strong>. Areas outside the Extreme Risk Area that are currently at risk of frequent inundation  (in the 100 year floodplain which is the FEMA A Zone) or at future risk of shallow coastal flooding with sea level rise (assumption of 3 feet).<br/><br/>
+<strong>Moderate</strong>: Areas outside the Extreme and High Risk Areas but currently at moderate risk of inundation from infrequent events (in the 500 year floodplain which is the FEMA shaded X zone) or at risk of being in the 100 year floodplain with sea level rise (assumption of 3 feet)and any areas expected to be inundated by a category 3 hurricane.</span></span>
+  </p>
+  {{/if }}
+
+</section>
+
+{{#survey_config}}
+<section class="survey
+  {{# if_equal location_type 'general'}}
+      general-comments
+  {{/ if_equal }}
+"></section>
+{{/survey_config}}
