@@ -484,6 +484,13 @@ ul.recent-points {
 }
 
 
+.form-spinner {
+  float: none;
+  display: inline-block;
+  margin-top: 0px;
+  margin-left: 25px;
+}
+
 /* =Media Queries
 -------------------------------------------------------------- */
 
