@@ -5,17 +5,17 @@
   <h1>
     
     {{# if_equal location_type 'A'}} 
-      {{ Name }}
+      {{ NAME }}
     {{/ if_equal }}
     
     {{# if_equal location_type 'B'}} 
-      {{ Name }}
+      {{ NAME }}
     {{/ if_equal }}
     
     {{# if_equal location_type 'C'}} 
 
       {{# if_equal Socially_V 'Y'}} 
-          {{ Name }}  
+          {{ NAME }}  
       {{ else }}
           {{ Address }}
       {{/ if_equal }}
@@ -23,11 +23,11 @@
     {{/ if_equal }}
     
     {{# if_equal location_type 'D'}} 
-      {{ Name }}
+      {{ NAME }}
     {{/ if_equal }}
     
     {{# if_equal location_type 'E'}} 
-      {{ Name }}
+      {{ NAME }}
     {{/ if_equal }}
     
     {{# if_equal location_type 'GREENWAY'}} 
@@ -39,11 +39,11 @@
     {{/ if_equal }}
     
     {{# if_equal location_type 'ROAD'}} 
-        {{ Name }}
+        {{ NAME }}
     {{/ if_equal }}
     
     {{# if_equal location_type 'CORRIDOR'}} 
-        {{ Name }}
+        {{ NAME }}
     {{/ if_equal }}
     
     {{# if_equal location_type 'NONE'}} 
