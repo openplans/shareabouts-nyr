@@ -1,3 +1,5 @@
+/*globals jQuery Backbone _ Handlebars Spinner */
+
 var Shareabouts = Shareabouts || {};
 
 (function(S, $, console){
@@ -59,11 +61,13 @@ var Shareabouts = Shareabouts || {};
           submissionType = this.collection.options.submissionType,
           $form = this.$('form'),
           $button = this.$('[name="commit"]'),
-          attrs = S.Util.getAttrs($form);
+          attrs = S.Util.getAttrs($form),
+          spinner;
 
       // Disable the submit button until we're done, so that the user doesn't
       // over-click it
       $button.attr('disabled', 'disabled');
+      spinner = new Spinner(S.smallSpinnerOptions).spin(this.$('.form-spinner')[0]);
 
       // Create a model with the attributes from the form
       this.collection.create(attrs, {
@@ -86,6 +90,7 @@ var Shareabouts = Shareabouts || {};
         complete: function() {
           // No matter what, enable the button
           $button.removeAttr('disabled');
+          spinner.stop();
         }
       });
     },
@@ -97,4 +102,4 @@ var Shareabouts = Shareabouts || {};
 
   });
 
-})(Shareabouts, jQuery, Shareabouts.Util.console);
+}(Shareabouts, jQuery, Shareabouts.Util.console));

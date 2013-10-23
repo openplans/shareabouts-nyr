@@ -69,4 +69,11 @@ var Shareabouts = Shareabouts || {};
     return Shareabouts.getNewestCommentType(this.responses, this.place.location_type === 'general');
   });
 
+  Handlebars.registerHelper('first_of', function(/*arg1, arg2, ..., */) {
+    var args = Array.prototype.slice.call(arguments),
+        choices = _.initial(args);
+
+    return _.find(choices, function(arg) {return !(_.isUndefined(arg) || _.isNull(arg));});
+  });
+
 }(Shareabouts));

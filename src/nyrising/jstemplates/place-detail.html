@@ -2,56 +2,7 @@
 
 <header class="place-header clearfix">
   <p><span class="asset-class">{{ASSET_CLAS}}</span></p>
-  <h1>
-    
-    {{# if_equal location_type 'A'}} 
-      {{ Name }}
-    {{/ if_equal }}
-    
-    {{# if_equal location_type 'B'}} 
-      {{ Address }}
-    {{/ if_equal }}
-    
-    {{# if_equal location_type 'C'}} 
-
-      {{# if_equal Socially_V 'Y'}} 
-          {{ Name }}  
-      {{ else }}
-          {{ Address }}
-      {{/ if_equal }}
-
-    {{/ if_equal }}
-    
-    {{# if_equal location_type 'D'}} 
-      {{ Name }}
-    {{/ if_equal }}
-    
-    {{# if_equal location_type 'E'}} 
-      {{ Name }}
-    {{/ if_equal }}
-    
-    {{# if_equal location_type 'GREENWAY'}} 
-        {{ Overlay }}
-    {{/ if_equal }}
-    
-    {{# if_equal location_type 'PIER'}} 
-        {{ Overlay }}
-    {{/ if_equal }}
-    
-    {{# if_equal location_type 'ROAD'}} 
-        {{ Name }}
-    {{/ if_equal }}
-    
-    {{# if_equal location_type 'CORRIDOR'}} 
-        {{ Name }}
-    {{/ if_equal }}
-    
-    {{# if_equal location_type 'NONE'}} 
-        {{ Address }}
-    {{/ if_equal }}
-    
-
-</h1>
+  <h1>{{> nyrising-place-detail-name }}</h1>
 </header>
 
 <section class="place-items">

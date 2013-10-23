@@ -1,0 +1,45 @@
+    {{# if_equal location_type 'A'}} 
+      {{ Address }}
+    {{/ if_equal }}
+    
+    {{# if_equal location_type 'B'}} 
+      {{ first_of Name NAME }}
+    {{/ if_equal }}
+    
+    {{# if_equal location_type 'C'}} 
+
+      {{# if_equal Socially_V 'Y'}} 
+          {{ first_of Name NAME }}
+      {{ else }}
+          {{ Address }}
+      {{/ if_equal }}
+
+    {{/ if_equal }}
+    
+    {{# if_equal location_type 'D'}} 
+      {{ first_of Name NAME }}
+    {{/ if_equal }}
+    
+    {{# if_equal location_type 'E'}} 
+      {{ first_of Name NAME }}
+    {{/ if_equal }}
+    
+    {{# if_equal location_type 'NONE'}} 
+      {{ Address }}
+    {{/ if_equal }}
+    
+    {{# if_equal location_type 'ROAD'}} 
+        {{ first_of Name NAME }}
+    {{/ if_equal }}
+    
+    {{# if_equal location_type 'GREENWAY'}} 
+        {{ Overlay }}
+    {{/ if_equal }}
+    
+    {{# if_equal location_type 'PIER'}} 
+        {{ Overlay }}
+    {{/ if_equal }}
+    
+    {{# if_equal location_type 'CORRIDOR'}} 
+        {{ first_of Name NAME }}
+    {{/ if_equal }}
