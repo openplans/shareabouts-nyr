@@ -3,9 +3,9 @@ app:
   # HTML Title
   title: NY Rising
   # Header name
-  name: New and Old Howard Beach
+  name: Howard Beach
   # Meta description that will show up in Google search results
-  meta_description: _(NY Rising - New and Old Howard Beach)
+  meta_description: _(NY Rising - Howard Beach)
 
   # When the map loads, existing places will be loaded in chunks. By default,
   # the size of the chunks will be a reasonable default dictated by the API
