@@ -7,6 +7,11 @@ app:
   # Meta description that will show up in Google search results
   meta_description: _(NY Rising - Rockaway East)
 
+  # When the map loads, existing places will be loaded in chunks. By default,
+  # the size of the chunks will be a reasonable default dictated by the API
+  # server. If you would like to override the chunk size, use this setting:
+  places_page_size: 250
+
 # Settings for map and layer configs
 map:
   geolocation_enabled: true
