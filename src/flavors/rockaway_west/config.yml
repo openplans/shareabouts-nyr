@@ -21,7 +21,7 @@ map:
       lat: 40.5831
       lng: -73.8337
     zoom: 17
-    minZoom: 16
+    minZoom: 15
     maxZoom: 18
   layers:
     - url: http://{s}.tiles.mapbox.com/v3/openplans.150-NYRising-RW/{z}/{x}/{y}.png
