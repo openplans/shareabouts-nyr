@@ -1,6 +1,11 @@
 Shareabouts for NY Rising
 ==================
 
+
+Map updates 
+------------
+
+
 Updating the map involves the following steps:
 
 * Updating the tiles
@@ -46,6 +51,19 @@ Step by step:
 
 0. TODO: numbering the roadways etc -- do we need to do this? how will I pull out the road sections that have been updated?
 
+
+
+Replies to participants
+-----------
+
+**In response to Corrections**
+
+[name], thank you for sharing this correction. We will make sure the corrected community asset information is included in the community recovery plan.
+
+
+**In response to Issues**
+
+[name], thank you for sharing this issue. Your comment will be considered by your community’s Planning Committee as it identifies local needs and potential projects for the final Community Reconstruction Plan.
 
 
 Credits
