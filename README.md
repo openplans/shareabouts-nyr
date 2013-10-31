@@ -38,6 +38,10 @@ Step by step:
 
   -- For RW, put `ROCKAWAY BOARDWALK` into its own file.
 
+0. From assets, select `ASSET_CLAS is null`, update to `NONE`. Copy the assets shapefile into `to merge`.
+
+0. Run `Merge shapefiles into one`. 
+
 0. TODO: merging
 
 0. TODO: numbering the roadways etc -- do we need to do this? how will I pull out the road sections that have been updated?
