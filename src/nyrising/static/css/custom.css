@@ -459,6 +459,10 @@ ul.recent-points {
   display: none;
 }
 
+.signed-in-as {
+  float: none;
+}
+
 
 /* =Help - Read More
 -------------------------------------------------------------- */
