@@ -35,18 +35,34 @@
   S.App.prototype.viewComments = function() {
     // Get the first general place (i.e., places with location_type='general').
     // Use the first one, and bail if there aren't any.
-    var allPlaces = this.collection,
+    var self = this,
+        allPlaces = this.collection,
         generalPlaces = allPlaces.where({location_type: 'general'}),
         generalPlace;
 
     if (generalPlaces.length === 0) {
-      alert('No general places in the dataset.');
-      return;
+      allPlaces.fetch({
+        data: {
+          location_type: 'general'
+        },
+        success: function(collection) {
+          generalPlaces = collection.where({location_type: 'general'});
+
+          if (generalPlaces.length === 0) {
+            alert('No general places in the dataset.');
+          } else {
+            generalPlace = generalPlaces[0];
+            self.appView.viewComments(generalPlace);
+          }
+        },
+        error: function() {
+          alert('No general places in the dataset.');
+        }
+      });
     } else {
       generalPlace = generalPlaces[0];
+      this.appView.viewComments(generalPlace);
     }
-
-    this.appView.viewComments(generalPlace);
   };
 
   // AppView.viewComments
