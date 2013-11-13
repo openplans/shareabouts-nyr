@@ -359,6 +359,10 @@ ul.recent-points {
 .legend-vulnerable {
   color: #E8A317;
 }
+.legend-focusarea {
+  color: #000;
+}
+
 
 /* asset indicator in info-window */
 .asset-class {
