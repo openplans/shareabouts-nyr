@@ -20,7 +20,7 @@ map:
     center:
       lat: 40.71382571104455
       lng: -73.99686813354492
-    zoom: 17
+    zoom: 15
     minZoom: 14
     maxZoom: 18
   layers:
