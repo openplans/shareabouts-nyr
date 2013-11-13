@@ -356,6 +356,9 @@ ul.recent-points {
 .legend-natural {
   color: #67D666;
 }
+.legend-vulnerable {
+  color: #E8A317;
+}
 
 /* asset indicator in info-window */
 .asset-class {
