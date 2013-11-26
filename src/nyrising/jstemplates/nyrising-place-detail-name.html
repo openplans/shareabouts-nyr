@@ -31,6 +31,10 @@
       {{ first_of Name NAME }}
     {{/ if_equal }}
     
+    {{# if_equal location_type 'V'}} 
+      {{ first_of Name NAME }}
+    {{/ if_equal }}
+    
     {{# if_equal location_type 'NONE'}} 
       {{ Address }}
     {{/ if_equal }}

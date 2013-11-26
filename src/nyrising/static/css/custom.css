@@ -390,7 +390,9 @@ ul.recent-points {
 .asset-vacant {
   background: #666;
 }
-
+.asset-vulnerable {
+  background: #E8A317;
+}
 
 /* =Comment Types
 -------------------------------------------------------------- */
