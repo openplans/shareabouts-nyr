@@ -68,60 +68,7 @@
 
 <div id="reply">
   <h4 class="reply-header">{{ title }}</h4>
-  <form id="new_response" class="new_response" action="#" method="post">
-    <input type="hidden" name="visible" value="on">
-
-    <fieldset>
-    {{#survey_config.items}}
-
-      <div class="survey-field survey-field-{{ name }}">
-        {{#is_authenticated}}
-          {{^is_submitter_name}}
-          <label class="survey-label survey-label-{{ name }}" for="survey-{{ name }}">
-            {{#_}}{{ prompt }}{{# optional }} (optional){{/ optional }}{{/_}}
-          </label>
-          {{/is_submitter_name}}
-        {{^}}
-        <label class="survey-label survey-label-{{ name }}" for="survey-{{ name }}">
-          {{#_}}{{ prompt }}{{# optional }} (optional){{/ optional }}{{/_}}
-        </label>
-        {{/is_authenticated}}
-
-        <div class="survey-widgets survey-widgets-{{ name }}">
-          {{#is_input}}
-            {{#is_submitter_name}}
-              {{#is_authenticated}}
-              {{^}}
-                <input id="survey-{{ name }}" name="{{ name }}" type="{{ type }}" {{#attrs}} {{ key }}="{{ value }}"{{/attrs}}>
-              {{/is_authenticated}}
-            {{^}}
-              <input id="survey-{{ name }}" name="{{ name }}" type="{{ type }}" {{#attrs}} {{ key }}="{{ value }}"{{/attrs}}>
-            {{/is_submitter_name}}
-          {{/is_input}}
-
-          {{#is_textarea}}
-          <textarea id="survey-{{ name }}" name="{{ name }}"{{#attrs}} {{ key }}="{{ value }}"{{/attrs}}></textarea>
-          {{/is_textarea}}
-          {{#is_select}}
-          <select id="survey-{{ name }}" name="{{ name }}" type="{{ type }}" {{#attrs}} {{ key }}="{{ value }}"{{/attrs}}>
-            {{# options }}
-              <option value="{{.}}">{{.}}</option>
-            {{/ options }}
-          </select>
-          {{/is_select}}
-        </div>
-      </div>
-
-    {{/survey_config.items}}
-    </fieldset>
-
-    {{#is_authenticated}}
-      <p class="signed-in-as"><img src="{{ current_user "avatar_url" }}" class="avatar" /> {{ current_user "name" }}. <a class="" href="/users/logout/">Log Out</a></p>
-    {{/is_authenticated}}
-
-    <input name="commit" type="submit" value="{{ survey_config.submit_btn_text }}" class="bttn submit-bttn">
-
-    <div class="form-spinner"></div>
+  <form id="new_response" class="new_response">
   </form>
 </div>
 
